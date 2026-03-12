@@ -1,0 +1,368 @@
+Django Web-Based NVR Camera
+Surveillance System Requirements
+You are tasked with developing a modular web-based surveillance management system
+using Django.​
+The system manages and displays live camera streams from multiple Network Video
+Recorders (NVRs) through their web preview interfaces.
+Each NVR provides an HTTP/HTTPS web interface that shows cameras in a grid layout after
+login.
+Example NVR URLs include:
+●​ http://61.246.225.154:8001/doc/page/preview.asp (Hikvision)
+●​ http://136.232.171.218:20443/#/index/preview/ (CP Plus)
+●​ http://182.237.17.227:8080/cgi-bin/main-cgi (Generic NVR)
+
+Critical Technical Constraints
+1. No RTSP Streaming
+The system must NOT use RTSP streaming.
+The user does not have RTSP URLs, so:
+●​ Do NOT integrate VLC
+●​ Do NOT use OpenCV streaming
+●​ Do NOT use RTSP libraries
+Instead:
+
+Use Embedded Web Preview
+The system must embed NVR preview pages directly using:
+
+●​ HTML <iframe>
+●​ or embedded browser panels
+These preview pages already display live camera grids.
+
+Technology Stack
+Backend
+●​ Django (Python)
+●​ Django REST Framework (optional)
+●​ Requests library (for HTTP login)
+
+Frontend
+●​
+●​
+●​
+●​
+●​
+
+HTML5
+CSS3
+Bootstrap / Tailwind
+JavaScript
+Drag-and-drop (JS)
+
+Database
+●​ MySQL
+
+Parsing
+●​ BeautifulSoup (bs4)
+
+Logging
+●​ Python logging module
+
+System Architecture (Modular)
+nvr_surveillance/
+│
+├── manage.py
+
+│
+├── core/
+│ ├── models.py
+│ ├── views.py
+│ ├── urls.py
+│ ├── services/
+│ │ └── nvr_service.py
+│ │
+│ ├── adapters/
+│ │ ├── hikvision_adapter.py
+│ │ ├── cpplus_adapter.py
+│ │ └── generic_adapter.py
+│ │
+│ ├── utils/
+│ │ └── url_parser.py
+│
+├── templates/
+│ ├── login.html
+│ ├── dashboard.html
+│ ├── add_nvr.html
+│
+├── static/
+│ ├── css/
+│ ├── js/
+│ └── icons/
+
+Database Schema (MySQL)
+NVR Table
+nvr
+---id
+location
+url
+port
+username
+password
+brand
+created_at
+
+Cameras Table
+camera
+-----id
+nvr_id
+name
+preview_path
+
+Application Features
+1 Login Page
+Beautiful login UI.
+
+Fields
+●​ Username
+●​ Password
+●​ Eye icon for password visibility
+
+Login Logic
+Hardcoded authentication:
+username: admin
+password: admin123
+
+Behavior
+●​ Press Enter in username → move to password field
+●​ Invalid login → show error
+●​ Successful login → redirect to dashboard
+
+2 Dashboard Page
+Main surveillance monitoring interface.
+
+Layout
++-----------------------+-----------------------------+
+| Sidebar (NVR Tree) | Camera Grid
+|
+|
+|
+| NVR 1
+| [Cam][Cam][Cam][Cam]
+| └ Camera 1
+|
+|
+| └ Camera 2
+|
+|
+|
+|
+|
+| NVR 2
+|
+|
+| └ Camera 1
+|
+|
++-----------------------+-----------------------------+
+
+Sidebar Features
+Displays:
+NVR Location
+├ Camera 1
+├ Camera 2
+└ Camera 3
+
+Features:
+●​ Expand/collapse
+●​ Select cameras
+●​ Drag camera to grid
+
+Grid Features
+Grid layout options:
+4x4
+
+|
+|
+
+6x6
+8x8
+Custom rows/columns
+
+Each grid cell contains:
+<iframe src="preview_url"></iframe>
+
+Camera Interaction
+Drag & Drop
+User drags camera → grid cell → stream loads.
+
+Double Click
+Double click camera → auto add to next available grid slot.
+
+Multi Selection
+Select multiple cameras → "Add to Grid".
+
+3 Add NVR Page
+Modal form for adding new NVR.
+
+Fields
+Location
+URL/IP
+Port (optional)
+Username
+Password
+
+Example URL:
+
+http://115.247.88.126:82/
+
+URL Handling Logic
+If URL contains port:
+http://ip:82
+
+Use that port.
+If user enters port separately:
+http://ip + :port
+
+Connect Button
+When user clicks Connect
+System will:
+1 Detect NVR type​
+2 Login to NVR​
+3 Fetch cameras​
+4 Display camera list
+
+NVR Brand Detection
+Based on URL pattern.
+
+Hikvision
+/doc/page/preview.asp
+/doc/page/login.asp
+
+CP Plus
+#/index/preview
+port 20443
+
+Generic
+/cgi-bin/main-cgi
+
+Adapter Pattern
+Each NVR type has its own adapter.
+Example structure:
+class HikvisionAdapter:
+def login()
+def fetch_cameras()
+def preview_url()
+class CpPlusAdapter:
+def login()
+def fetch_cameras()
+class GenericAdapter:
+def login()
+def fetch_cameras()
+
+Login Implementation
+Use Python requests session.
+Example:
+session = requests.Session()
+session.post(login_url, data={
+"username": user,
+
+"password": password
+})
+
+Store cookies for preview access.
+
+Camera Fetching
+After login:
+Load preview page.
+Parse HTML using BeautifulSoup.
+Extract:
+camera name
+camera id
+preview path
+
+Streaming Method
+Grid loads preview using iframe.
+Example:
+<iframe
+src="http://nvr-ip/doc/page/preview.asp"
+width="100%"
+height="100%">
+</iframe>
+
+Handling Special Cases
+System must handle:
+
+Password containing @
+Use URL encoding.
+admin:p%40ssword
+
+Invalid URL
+Return error.
+
+Connection timeout
+Show alert.
+
+Invalid credentials
+Show login failure.
+
+Error Handling
+Use try/except.
+Display user-friendly alerts:
+Connection failed
+Invalid credentials
+Invalid URL
+NVR not supported
+
+Application Startup
+On server start:
+1 Load NVRs from database​
+2 Load cameras​
+3 Display in sidebar
+
+Delete Feature
+Users can delete:
+●​ NVR
+●​ Cameras
+Database will update accordingly.
+
+Performance
+Use async tasks:
+Celery (optional)
+Django async views
+
+Camera fetching should not block UI.
+
+UI Design
+Modern interface using:
+●​ Bootstrap
+●​ animations
+●​ icons
+Example features:
+●​ password eye icon
+●​ smooth transitions
+●​ responsive grid
+
+Deployment
+The system must run as:
+Django Web Application
+
+Steps:
+pip install django
+pip install mysqlclient
+pip install requests
+pip install beautifulsoup4
+
+Run:
+python manage.py migrate
+python manage.py runserver
+
+Final System Capabilities
+The system allows users to:
+●​
+●​
+●​
+●​
+●​
+●​
+●​
+●​
+●​
+
+Login securely
+Add NVR devices
+Detect NVR brands
+Fetch cameras automatically
+Store cameras in MySQL
+View live camera streams
+Drag cameras to grid
+Customize grid layouts
+Monitor multiple NVRs
+
+

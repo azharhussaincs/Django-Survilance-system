@@ -1,0 +1,129 @@
+/* ─── NVR Shield – Login Page CSS ───────────────────────────────────────── */
+
+body.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Animated grid background */
+body.login-page::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Corner decorative feeds */
+.corner-feeds {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+}
+.corner-feed {
+  position: absolute;
+  width: 220px; height: 165px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden; opacity: 0.35;
+}
+.corner-feed::before {
+  content: attr(data-label);
+  position: absolute; top: 6px; left: 8px;
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--accent); letter-spacing: 0.12em;
+  z-index: 2;
+}
+.corner-feed::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 2px,
+    rgba(0,0,0,0.25) 2px, rgba(0,0,0,0.25) 4px
+  );
+  z-index: 1;
+}
+.corner-feed .noise {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--surface2) 0%,
+    var(--surface3) 40%,
+    var(--surface2) 80%
+  );
+  animation: camFlicker 0.15s steps(2) infinite;
+}
+@keyframes camFlicker {
+  0%, 100% { opacity: 0.9; }
+  50%       { opacity: 0.7; }
+}
+.cf-tl { top: 0; left: 0; border-bottom-right-radius: 4px; }
+.cf-tr { top: 0; right: 0; border-bottom-left-radius: 4px; }
+.cf-bl { bottom: 0; left: 0; border-top-right-radius: 4px; }
+.cf-br { bottom: 0; right: 0; border-top-left-radius: 4px; }
+
+/* Login card */
+.login-wrap {
+  position: relative; z-index: 10;
+  width: 100%; max-width: 420px;
+  padding: 20px;
+}
+
+.login-brand {
+  text-align: center; margin-bottom: 30px;
+}
+.login-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 66px; height: 66px;
+  border: 2px solid var(--accent);
+  border-radius: 14px; margin-bottom: 14px;
+  animation: pulse 3s ease-in-out infinite;
+}
+.login-icon svg { color: var(--accent); }
+.login-title {
+  font-size: 30px; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+}
+.login-subtitle {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--muted); letter-spacing: 0.3em;
+  text-transform: uppercase; margin-top: 4px;
+}
+
+.login-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 30px;
+  position: relative; overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.login-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+}
+
+.login-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 18px; padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.system-status {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 11px; color: var(--green);
+}
+.system-time {
+  font-family: var(--font-mono); font-size: 11px; color: var(--muted);
+}
+
+.btn-login {
+  width: 100%; margin-top: 8px;
+  padding: 13px; font-size: 15px;
+}

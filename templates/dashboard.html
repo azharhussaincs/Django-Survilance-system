@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+{% load static nvr_tags %}
+
+{% block title %}NVR Shield — Dashboard{% endblock %}
+{% block body_class %}dashboard-page{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ═══════════════════════════════════════════════════════ TOP BAR -->
+<header class="topbar">
+  <a href="{% url 'dashboard' %}" class="topbar-brand">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83
+               M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+    </svg>
+    NVR Shield
+  </a>
+
+  <div class="topbar-divider"></div>
+
+  <!-- Live stats -->
+  <div class="stat-pill">
+    <span class="dot dot-green"></span>
+    <span id="statNvr">{{ nvrs|length }} NVR{{ nvrs|length|pluralize }}</span>
+  </div>
+  <div class="stat-pill">
+    <span class="dot dot-blue"></span>
+    <span id="statCam">
+      {% with total=0 %}
+        {% for nvr in nvrs %}{% with c=nvr|camera_count %}{% endwith %}{% endfor %}
+      {% endwith %}
+      0 Cameras
+    </span>
+  </div>
+  <div class="stat-pill">
+    <span class="dot dot-yellow"></span>
+    <span id="statActive">0 Active</span>
+  </div>
+
+  <div class="topbar-spacer"></div>
+
+  <div class="topbar-clock" id="topClock"></div>
+
+  <!-- Add NVR button -->
+  <button class="btn btn-primary" style="padding:7px 14px;font-size:13px" onclick="openAddNvrModal()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <line x1="12" y1="5" x2="12" y2="19"/>
+      <line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+    Add NVR
+  </button>
+
+  <span class="topbar-user">{{ username }}</span>
+  <a href="{% url 'logout' %}" style="text-decoration:none">
+    <button class="btn-logout">Logout</button>
+  </a>
+</header>
+
+<!-- ═══════════════════════════════════════════════════ MAIN LAYOUT -->
+<div class="main-layout">
+
+  <!-- ═════════════════════════════════════════════════════ SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <span class="sidebar-title">NVR Tree</span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--muted)">
+        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+        <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+      </svg>
+    </div>
+
+    <!-- Tree -->
+    <div class="sidebar-body" id="nvrTree">
+
+      {% if not nvrs %}
+      <div class="sidebar-empty" id="sidebarEmpty">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <rect x="2" y="7" width="20" height="15" rx="2"/>
+          <polyline points="17,2 12,7 7,2"/>
+        </svg>
+        <div class="sidebar-empty-title">No NVRs added</div>
+        <div class="sidebar-empty-sub">Click "+ Add NVR" to begin</div>
+      </div>
+      {% endif %}
+
+      {% for nvr in nvrs %}
+      <div class="nvr-item open" data-nvr-id="{{ nvr.id }}">
+
+        <!-- NVR row -->
+        <div class="nvr-row" onclick="toggleNvrItem(this)">
+          <span class="nvr-arrow">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9,18 15,12 9,6"/>
+            </svg>
+          </span>
+          <span class="badge {{ nvr.brand|brand_class }}">{{ nvr.brand }}</span>
+          <span class="nvr-name ellipsis" title="{{ nvr.location }}">{{ nvr.location }}</span>
+          <div class="nvr-actions">
+            <button class="nvr-act-btn" title="Sync Cameras"
+              onclick="event.stopPropagation();syncNvr({{ nvr.id }},'{{ nvr.location|escapejs }}',this)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+            </button>
+            {% status_dot nvr.is_connected %}
+            <button class="nvr-act-btn" title="Delete NVR"
+              onclick="event.stopPropagation();deleteNvr({{ nvr.id }},'{{ nvr.location|escapejs }}',this)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3,6 5,6 21,6"/>
+                <path d="M19,6v14a2,2,0,0,1-2,2H7a2,2,0,0,1-2-2V6"/>
+                <path d="M8,6V4a2,2,0,0,1,2-2h4a2,2,0,0,1,2,2v2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Camera list -->
+        <div class="cam-list">
+          {% for cam in nvr.cameras.all %}
+          {% if cam.is_active %}
+          <div class="cam-row"
+               data-cam-id="{{ cam.id }}"
+               data-cam-name="{{ cam.name|escapejs }}"
+               data-preview-url="{{ cam.get_preview_url }}"
+               data-raw-preview-url="{{ cam.get_raw_preview_url }}"
+               data-stream-url="{% url 'camera_stream' cam.id %}"
+               data-nvr-id="{{ nvr.id }}"
+               draggable="true"
+               ondragstart="onCamDragStart(this)"
+               ondblclick="camDblClick(this)"
+               onclick="toggleCamSelect(this)"
+               title="Double-click to add | Drag to grid cell">
+            <span class="dot dot-green"></span>
+            <span class="cam-name-text ellipsis">{{ cam.name }}</span>
+            {% if cam.channel %}<span class="cam-ch">CH{{ cam.channel }}</span>{% endif %}
+            <button class="cam-del-btn" title="Delete camera"
+              onclick="event.stopPropagation();deleteCam({{ cam.id }},'{{ cam.name|escapejs }}',this)">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </div>
+          {% endif %}
+          {% empty %}
+          <div class="cam-empty">No cameras</div>
+          {% endfor %}
+        </div>
+
+      </div>
+      {% endfor %}
+
+    </div><!-- /sidebar-body -->
+
+    <!-- Sidebar footer: multi-select actions -->
+    <div class="sidebar-foot">
+      <div class="sel-count" id="selCount" style="display:none">0 selected</div>
+      <button class="btn-add-sel" id="btnAddSelected" style="display:none" onclick="addSelectedToGrid()">
+        Add Selected to Grid
+      </button>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════════ GRID AREA -->
+  <div class="grid-area">
+
+    <!-- Toolbar -->
+    <div class="grid-toolbar">
+      <span class="toolbar-label">Layout</span>
+
+      <button class="layout-btn active" onclick="setGrid(2,2,this)">2×2</button>
+      <button class="layout-btn"        onclick="setGrid(3,3,this)">3×3</button>
+      <button class="layout-btn"        onclick="setGrid(4,4,this)">4×4</button>
+      <button class="layout-btn"        onclick="setGrid(6,6,this)">6×6</button>
+      <button class="layout-btn"        onclick="setGrid(8,8,this)">8×8</button>
+
+      <div class="toolbar-sep"></div>
+      <span class="toolbar-label">Custom</span>
+
+      <div class="custom-inputs">
+        <input type="number" id="customCols" class="custom-inp" min="1" max="12" placeholder="Cols">
+        <span class="custom-x">×</span>
+        <input type="number" id="customRows" class="custom-inp" min="1" max="12" placeholder="Rows">
+        <button class="btn-apply" onclick="applyCustomGrid()">Apply</button>
+      </div>
+
+      <div class="toolbar-sep"></div>
+      <div class="toolbar-spacer"></div>
+
+      <!-- Clear button -->
+      <button class="btn-icon" onclick="clearGrid()" title="Clear all streams">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="3,6 5,6 21,6"/>
+          <path d="M19,6v14a2,2,0,0,1-2,2H7a2,2,0,0,1-2-2V6"/>
+          <path d="M8,6V4a2,2,0,0,1,2-2h4a2,2,0,0,1,2,2v2"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Camera grid -->
+    <div class="grid-wrap">
+      <div class="cam-grid" id="camGrid"
+           style="grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)">
+        <!-- Cells built by dashboard.js on load -->
+      </div>
+    </div>
+
+  </div><!-- /grid-area -->
+</div><!-- /main-layout -->
+
+
+<!-- ══════════════════════════════════════════ ADD NVR MODAL -->
+<div class="modal-overlay" id="addNvrModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Add NVR Device</div>
+      <button class="modal-close" onclick="closeAddNvrModal()" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- Alert -->
+      <div class="alert" id="modalAlert" style="display:none"></div>
+
+      <!-- Location -->
+      <div class="field-group">
+        <label class="field-label" for="nvrLocation">Location / Label *</label>
+        <input type="text" id="nvrLocation" class="field-input"
+               placeholder="e.g. Building A – Floor 3, Main Gate">
+      </div>
+
+      <!-- URL + Port row -->
+      <div class="field-row">
+        <div class="field-group" style="flex:3">
+          <label class="field-label" for="nvrUrl">NVR URL or IP *</label>
+          <input type="text" id="nvrUrl" class="field-input"
+                 placeholder="http://192.168.1.100 or IP:port/path">
+        </div>
+        <div class="field-group" style="flex:1">
+          <label class="field-label" for="nvrPort">Port</label>
+          <input type="number" id="nvrPort" class="field-input" min="1" max="65535"
+                 placeholder="80">
+        </div>
+      </div>
+
+      <!-- Credentials row -->
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label" for="nvrUsername">Username *</label>
+          <input type="text" id="nvrUsername" class="field-input"
+                 placeholder="admin" value="admin" autocomplete="off">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="nvrPassword">Password</label>
+          <div class="field-wrap">
+            <input type="password" id="nvrPassword" class="field-input has-icon"
+                   placeholder="password" autocomplete="off">
+            <button type="button" class="field-eye-btn" onclick="toggleModalPwd()">
+              <svg id="modalEyeIco" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Connect button -->
+      <div style="display:flex;justify-content:center;margin-top:6px">
+        <button id="btnConnect" class="btn btn-primary"
+                style="min-width:160px;gap:8px"
+                onclick="connectNvr()">
+          <div class="spinner" id="connectSpinner" style="display:none"></div>
+          <span id="connectLabel">Connect</span>
+        </button>
+      </div>
+
+      <!-- Connect result panel -->
+      <div class="connect-panel" id="connectPanel">
+        <div class="section-header">Detected Cameras</div>
+        <div class="detected-brand" id="detectedBrand"></div>
+        <div class="cam-preview-scroll" id="camPreviewList"></div>
+      </div>
+
+    </div><!-- /modal-body -->
+
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeAddNvrModal()">Cancel</button>
+      <button class="btn btn-primary" id="btnSaveNvr" style="display:none" onclick="saveNvr()">
+        Save &amp; Add to Sidebar
+      </button>
+    </div>
+
+  </div><!-- /modal -->
+</div><!-- /modal-overlay -->
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock %}

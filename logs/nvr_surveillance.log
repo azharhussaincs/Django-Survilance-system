@@ -1,0 +1,1068 @@
+[2026-03-10 10:22:46] INFO core Login success: admin
+[2026-03-10 10:23:42] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-10 10:23:42] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-10 10:23:47] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-10 10:23:51] INFO core Fetched 8 cameras from http://115.247.88.126:82
+[2026-03-10 10:24:02] INFO core Saved NVR 'Testing' (id=1, created=True) with 8 cameras
+[2026-03-10 10:28:51] INFO core Login success: admin
+[2026-03-10 10:29:11] INFO core Deleted NVR id=1 location='Testing'
+[2026-03-10 10:30:13] INFO core Detected brand 'hikvision' for URL: http://61.246.225.154:8001
+[2026-03-10 10:30:13] DEBUG core Using adapter: HikvisionAdapter for brand 'hikvision'
+[2026-03-10 10:30:13] INFO core [Hikvision] Digest auth OK – http://61.246.225.154:8001
+[2026-03-10 10:30:14] INFO core Fetched 1 cameras from http://61.246.225.154:8001
+[2026-03-10 10:30:34] INFO core Saved NVR 'Shahapura Toll Plaza Karnataka' (id=2, created=True) with 1 cameras
+[2026-03-11 03:56:30] INFO core Detected brand 'hikvision' for URL: http://115.243.82.218:82
+[2026-03-11 03:56:30] DEBUG core Using adapter: HikvisionAdapter for brand 'hikvision'
+[2026-03-11 03:56:30] INFO core [Hikvision] Digest auth OK at /doc/page/preview.asp – http://115.243.82.218:82
+[2026-03-11 03:56:31] INFO core Fetched 2 cameras from http://115.243.82.218:82
+[2026-03-11 03:56:40] INFO core Saved NVR 'Vanageri Toll Plaza, Karnataka' (id=3, created=True) with 2 cameras
+[2026-03-11 04:17:42] INFO core Deleted NVR id=3 location='Vanageri Toll Plaza, Karnataka'
+[2026-03-11 04:17:46] INFO core Deleted NVR id=2 location='Shahapura Toll Plaza Karnataka'
+[2026-03-11 04:18:23] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 04:18:23] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 04:18:27] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 04:18:34] WARNING core ConnectionError GET http://115.247.88.126:82/web/live.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:18:34] ERROR core Error fetching cameras
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 323, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 292, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 323, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 292, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/core/utils/helpers.py", line 43, in safe_get
+    return session.get(url, **kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/core/services/nvr_service.py", line 95, in connect_nvr
+    cameras = adapter.fetch_cameras()
+  File "/home/albaloshi/Desktop/claude/Django/core/adapters/generic_adapter.py", line 132, in fetch_cameras
+    resp = safe_get(self.session, url)
+  File "/home/albaloshi/Desktop/claude/Django/core/utils/helpers.py", line 49, in safe_get
+    raise ConnectionError(f"Cannot connect to {url}")
+ConnectionError: Cannot connect to http://115.247.88.126:82/web/live.html
+[2026-03-11 04:18:55] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 04:18:55] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 04:19:01] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 04:19:08] WARNING core ConnectionError GET http://115.247.88.126:82/web/live.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:19:08] ERROR core Error fetching cameras
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 323, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 292, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 323, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 292, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/core/utils/helpers.py", line 43, in safe_get
+    return session.get(url, **kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/core/services/nvr_service.py", line 95, in connect_nvr
+    cameras = adapter.fetch_cameras()
+  File "/home/albaloshi/Desktop/claude/Django/core/adapters/generic_adapter.py", line 132, in fetch_cameras
+    resp = safe_get(self.session, url)
+  File "/home/albaloshi/Desktop/claude/Django/core/utils/helpers.py", line 49, in safe_get
+    raise ConnectionError(f"Cannot connect to {url}")
+ConnectionError: Cannot connect to http://115.247.88.126:82/web/live.html
+[2026-03-11 04:20:51] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 04:20:51] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 04:20:55] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 04:21:00] WARNING core ConnectionError GET http://115.247.88.126:82/web/live.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:21:00] ERROR core Error fetching cameras
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 323, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 292, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 323, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 292, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/core/utils/helpers.py", line 43, in safe_get
+    return session.get(url, **kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/albaloshi/Desktop/claude/Django/venv/lib/python3.10/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/albaloshi/Desktop/claude/Django/core/services/nvr_service.py", line 95, in connect_nvr
+    cameras = adapter.fetch_cameras()
+  File "/home/albaloshi/Desktop/claude/Django/core/adapters/generic_adapter.py", line 132, in fetch_cameras
+    resp = safe_get(self.session, url)
+  File "/home/albaloshi/Desktop/claude/Django/core/utils/helpers.py", line 49, in safe_get
+    raise ConnectionError(f"Cannot connect to {url}")
+ConnectionError: Cannot connect to http://115.247.88.126:82/web/live.html
+[2026-03-11 04:30:07] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 04:30:07] INFO core Checking connectivity to 115.247.88.126 on port 82...
+[2026-03-11 04:30:07] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 04:30:11] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 04:30:14] WARNING core ConnectionError GET http://115.247.88.126:82/RPC2: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:30:14] DEBUG core [Generic] API discovery failed at /RPC2: Cannot connect to http://115.247.88.126:82/RPC2
+[2026-03-11 04:30:14] WARNING core ConnectionError GET http://115.247.88.126:82/onvif/device_service: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:30:14] DEBUG core [Generic] API discovery failed at /onvif/device_service: Cannot connect to http://115.247.88.126:82/onvif/device_service
+[2026-03-11 04:30:19] WARNING core ConnectionError GET http://115.247.88.126:82/web/live.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:30:19] DEBUG core [Generic] Scrape failed at /web/live.html: Cannot connect to http://115.247.88.126:82/web/live.html
+[2026-03-11 04:30:20] WARNING core ConnectionError GET http://115.247.88.126:82/web/index.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:30:20] DEBUG core [Generic] Scrape failed at /web/index.html: Cannot connect to http://115.247.88.126:82/web/index.html
+[2026-03-11 04:30:21] WARNING core ConnectionError GET http://115.247.88.126:82/web/preview.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:30:21] DEBUG core [Generic] Scrape failed at /web/preview.html: Cannot connect to http://115.247.88.126:82/web/preview.html
+[2026-03-11 04:30:23] INFO core Fetched 8 cameras from http://115.247.88.126:82
+[2026-03-11 04:30:38] INFO core Saved NVR 'Testing' (id=4, created=True) with 8 cameras
+[2026-03-11 04:43:44] INFO core Deleted NVR id=4 location='Testing'
+[2026-03-11 04:44:08] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 04:44:08] INFO core Checking connectivity to 115.247.88.126 on port 82...
+[2026-03-11 04:44:08] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 04:44:13] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 04:44:16] WARNING core ConnectionError GET http://115.247.88.126:82/RPC2: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:44:16] DEBUG core [Generic] API discovery failed at /RPC2: Cannot connect to http://115.247.88.126:82/RPC2
+[2026-03-11 04:44:16] WARNING core ConnectionError GET http://115.247.88.126:82/onvif/device_service: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:44:16] DEBUG core [Generic] API discovery failed at /onvif/device_service: Cannot connect to http://115.247.88.126:82/onvif/device_service
+[2026-03-11 04:44:23] WARNING core ConnectionError GET http://115.247.88.126:82/web/live.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:44:23] DEBUG core [Generic] Scrape failed at /web/live.html: Cannot connect to http://115.247.88.126:82/web/live.html
+[2026-03-11 04:44:25] WARNING core ConnectionError GET http://115.247.88.126:82/web/index.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:44:25] DEBUG core [Generic] Scrape failed at /web/index.html: Cannot connect to http://115.247.88.126:82/web/index.html
+[2026-03-11 04:44:26] WARNING core ConnectionError GET http://115.247.88.126:82/web/preview.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:44:26] DEBUG core [Generic] Scrape failed at /web/preview.html: Cannot connect to http://115.247.88.126:82/web/preview.html
+[2026-03-11 04:44:31] INFO core Fetched 8 cameras from http://115.247.88.126:82
+[2026-03-11 04:44:37] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 04:44:37] INFO core Checking connectivity to 115.247.88.126 on port 82...
+[2026-03-11 04:44:37] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 04:44:41] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 04:44:45] WARNING core ConnectionError GET http://115.247.88.126:82/RPC2: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:44:45] DEBUG core [Generic] API discovery failed at /RPC2: Cannot connect to http://115.247.88.126:82/RPC2
+[2026-03-11 04:44:45] WARNING core ConnectionError GET http://115.247.88.126:82/onvif/device_service: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:44:45] DEBUG core [Generic] API discovery failed at /onvif/device_service: Cannot connect to http://115.247.88.126:82/onvif/device_service
+[2026-03-11 04:44:51] WARNING core ConnectionError GET http://115.247.88.126:82/web/live.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:44:51] DEBUG core [Generic] Scrape failed at /web/live.html: Cannot connect to http://115.247.88.126:82/web/live.html
+[2026-03-11 04:44:53] WARNING core ConnectionError GET http://115.247.88.126:82/web/index.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:44:53] DEBUG core [Generic] Scrape failed at /web/index.html: Cannot connect to http://115.247.88.126:82/web/index.html
+[2026-03-11 04:44:54] WARNING core ConnectionError GET http://115.247.88.126:82/web/preview.html: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-11 04:44:54] DEBUG core [Generic] Scrape failed at /web/preview.html: Cannot connect to http://115.247.88.126:82/web/preview.html
+[2026-03-11 04:44:59] INFO core Fetched 8 cameras from http://115.247.88.126:82
+[2026-03-11 04:45:04] INFO core Saved NVR 'check' (id=5, created=True) with 8 cameras
+[2026-03-11 04:54:52] INFO core Deleted NVR id=5 location='check'
+[2026-03-11 04:55:22] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 04:55:22] INFO core Checking connectivity to 115.247.88.126 on port 82...
+[2026-03-11 04:55:22] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 04:55:29] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 04:55:29] INFO core [generic] Attempting ONVIF discovery for 115.247.88.126
+[2026-03-11 04:55:29] DEBUG core Trying ONVIF connection to 115.247.88.126:82
+[2026-03-11 04:55:31] INFO core ONVIF connected successfully to 115.247.88.126:82
+[2026-03-11 04:55:38] INFO core Discovered ONVIF camera: MediaProfile_Channel1_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:40] INFO core Discovered ONVIF camera: MediaProfile_Channel1_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:40] INFO core Discovered ONVIF camera: MediaProfile_Channel2_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:41] INFO core Discovered ONVIF camera: MediaProfile_Channel2_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:42] INFO core Discovered ONVIF camera: MediaProfile_Channel3_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:42] INFO core Discovered ONVIF camera: MediaProfile_Channel3_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:43] INFO core Discovered ONVIF camera: MediaProfile_Channel4_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:44] INFO core Discovered ONVIF camera: MediaProfile_Channel4_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:44] INFO core Discovered ONVIF camera: MediaProfile_Channel5_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:45] INFO core Discovered ONVIF camera: MediaProfile_Channel5_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:45] INFO core Discovered ONVIF camera: MediaProfile_Channel6_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:46] INFO core Discovered ONVIF camera: MediaProfile_Channel6_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:47] INFO core Discovered ONVIF camera: MediaProfile_Channel7_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:47] INFO core Discovered ONVIF camera: MediaProfile_Channel7_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:48] INFO core Discovered ONVIF camera: MediaProfile_Channel8_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:48] INFO core Discovered ONVIF camera: MediaProfile_Channel8_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:49] INFO core Discovered ONVIF camera: MediaProfile_Channel9_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:49] INFO core Discovered ONVIF camera: MediaProfile_Channel9_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:50] INFO core Discovered ONVIF camera: MediaProfile_Channel10_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=10&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:50] INFO core Discovered ONVIF camera: MediaProfile_Channel10_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=10&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:50] INFO core Discovered ONVIF camera: MediaProfile_Channel11_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=11&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:51] INFO core Discovered ONVIF camera: MediaProfile_Channel11_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=11&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:51] INFO core Discovered ONVIF camera: MediaProfile_Channel12_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=12&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:52] INFO core Discovered ONVIF camera: MediaProfile_Channel12_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=12&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:52] INFO core Discovered ONVIF camera: MediaProfile_Channel13_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=13&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:53] INFO core Discovered ONVIF camera: MediaProfile_Channel13_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=13&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:53] INFO core Discovered ONVIF camera: MediaProfile_Channel14_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=14&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:53] INFO core Discovered ONVIF camera: MediaProfile_Channel14_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=14&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:54] INFO core Discovered ONVIF camera: MediaProfile_Channel15_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=15&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:54] INFO core Discovered ONVIF camera: MediaProfile_Channel15_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=15&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:55] INFO core Discovered ONVIF camera: MediaProfile_Channel16_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=16&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:55] INFO core Discovered ONVIF camera: MediaProfile_Channel16_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=16&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:56] INFO core Discovered ONVIF camera: MediaProfile_Channel17_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=17&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:56] INFO core Discovered ONVIF camera: MediaProfile_Channel17_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=17&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:57] INFO core Discovered ONVIF camera: MediaProfile_Channel18_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=18&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:57] INFO core Discovered ONVIF camera: MediaProfile_Channel18_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=18&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:58] INFO core Discovered ONVIF camera: MediaProfile_Channel19_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=19&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:55:59] INFO core Discovered ONVIF camera: MediaProfile_Channel19_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=19&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:55:59] INFO core Discovered ONVIF camera: MediaProfile_Channel20_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=20&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:00] INFO core Discovered ONVIF camera: MediaProfile_Channel20_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=20&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:01] INFO core Discovered ONVIF camera: MediaProfile_Channel21_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=21&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:02] INFO core Discovered ONVIF camera: MediaProfile_Channel21_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=21&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:02] INFO core Discovered ONVIF camera: MediaProfile_Channel22_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=22&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:03] INFO core Discovered ONVIF camera: MediaProfile_Channel22_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=22&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:04] INFO core Discovered ONVIF camera: MediaProfile_Channel23_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=23&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:05] INFO core Discovered ONVIF camera: MediaProfile_Channel23_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=23&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:05] INFO core Discovered ONVIF camera: MediaProfile_Channel24_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=24&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:06] INFO core Discovered ONVIF camera: MediaProfile_Channel24_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=24&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:07] INFO core Discovered ONVIF camera: MediaProfile_Channel25_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=25&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:08] INFO core Discovered ONVIF camera: MediaProfile_Channel25_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=25&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:09] INFO core Discovered ONVIF camera: MediaProfile_Channel26_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=26&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:10] INFO core Discovered ONVIF camera: MediaProfile_Channel26_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=26&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:10] INFO core Discovered ONVIF camera: MediaProfile_Channel27_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=27&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:11] INFO core Discovered ONVIF camera: MediaProfile_Channel27_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=27&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:12] INFO core Discovered ONVIF camera: MediaProfile_Channel28_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=28&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:12] INFO core Discovered ONVIF camera: MediaProfile_Channel28_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=28&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:13] INFO core Discovered ONVIF camera: MediaProfile_Channel29_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=29&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:14] INFO core Discovered ONVIF camera: MediaProfile_Channel29_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=29&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:15] INFO core Discovered ONVIF camera: MediaProfile_Channel30_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=30&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:16] INFO core Discovered ONVIF camera: MediaProfile_Channel30_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=30&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:16] INFO core Discovered ONVIF camera: MediaProfile_Channel31_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:17] INFO core Discovered ONVIF camera: MediaProfile_Channel31_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:17] INFO core Discovered ONVIF camera: MediaProfile_Channel31_SubStream2 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=2&unicast=true&proto=Onvif
+[2026-03-11 04:56:18] INFO core Discovered ONVIF camera: MediaProfile_Channel32_MainStream -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 04:56:18] INFO core Discovered ONVIF camera: MediaProfile_Channel32_SubStream1 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 04:56:19] INFO core Discovered ONVIF camera: MediaProfile_Channel32_SubStream2 -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=2&unicast=true&proto=Onvif
+[2026-03-11 04:56:19] INFO core [generic] Found 66 cameras via ONVIF
+[2026-03-11 04:56:19] INFO core Fetched 64 cameras from http://115.247.88.126:82
+[2026-03-11 04:56:27] INFO core Saved NVR 'Testing' (id=6, created=True) with 64 cameras
+[2026-03-11 04:57:43] INFO core Detected brand 'unknown' for URL: http://47.247.181.222:8080
+[2026-03-11 04:57:43] INFO core Checking connectivity to 47.247.181.222 on port 8080...
+[2026-03-11 04:57:43] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 04:57:47] INFO core [Generic] Digest auth OK at http://47.247.181.222:8080/
+[2026-03-11 04:57:47] INFO core [generic] Attempting ONVIF discovery for 47.247.181.222
+[2026-03-11 04:57:47] DEBUG core Trying ONVIF connection to 47.247.181.222:8080
+[2026-03-11 04:57:49] INFO core ONVIF connected successfully to 47.247.181.222:8080
+[2026-03-11 04:57:52] INFO core Discovered ONVIF camera: token:16/0/0/3/1/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c0/s0/live
+[2026-03-11 04:57:52] INFO core Discovered ONVIF camera: token:17/0/4/1/4/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c4/s0/live
+[2026-03-11 04:57:52] INFO core Discovered ONVIF camera: token:17/0/4/1/4/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c4/s1/live
+[2026-03-11 04:57:53] INFO core Discovered ONVIF camera: token:17/0/4/1/4/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c4/s2/live
+[2026-03-11 04:57:53] INFO core Discovered ONVIF camera: token:17/0/2/1/2/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c2/s0/live
+[2026-03-11 04:57:54] INFO core Discovered ONVIF camera: token:17/0/2/1/2/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c2/s1/live
+[2026-03-11 04:57:54] INFO core Discovered ONVIF camera: token:17/0/1/1/1/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c1/s0/live
+[2026-03-11 04:57:54] INFO core Discovered ONVIF camera: token:17/0/1/1/1/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c1/s1/live
+[2026-03-11 04:57:55] INFO core Discovered ONVIF camera: token:17/0/1/1/1/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c1/s2/live
+[2026-03-11 04:57:55] INFO core Discovered ONVIF camera: token:17/0/16/1/16/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c16/s0/live
+[2026-03-11 04:57:56] INFO core Discovered ONVIF camera: token:17/0/16/1/16/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c16/s1/live
+[2026-03-11 04:57:56] INFO core Discovered ONVIF camera: token:17/0/14/1/14/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c14/s0/live
+[2026-03-11 04:57:56] INFO core Discovered ONVIF camera: token:17/0/14/1/14/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c14/s1/live
+[2026-03-11 04:57:58] INFO core Discovered ONVIF camera: token:17/0/21/1/21/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c21/s0/live
+[2026-03-11 04:57:58] INFO core Discovered ONVIF camera: token:17/0/21/1/21/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c21/s1/live
+[2026-03-11 04:57:59] INFO core Discovered ONVIF camera: token:17/0/17/1/17/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c17/s0/live
+[2026-03-11 04:57:59] INFO core Discovered ONVIF camera: token:17/0/17/1/17/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c17/s1/live
+[2026-03-11 04:58:00] INFO core Discovered ONVIF camera: token:17/0/19/1/19/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c19/s0/live
+[2026-03-11 04:58:00] INFO core Discovered ONVIF camera: token:17/0/19/1/19/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c19/s1/live
+[2026-03-11 04:58:01] INFO core Discovered ONVIF camera: token:17/0/19/1/19/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c19/s2/live
+[2026-03-11 04:58:02] INFO core Discovered ONVIF camera: token:17/0/22/1/22/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c22/s0/live
+[2026-03-11 04:58:02] INFO core Discovered ONVIF camera: token:17/0/22/1/22/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c22/s1/live
+[2026-03-11 04:58:03] INFO core Discovered ONVIF camera: token:17/0/18/1/18/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c18/s0/live
+[2026-03-11 04:58:03] INFO core Discovered ONVIF camera: token:17/0/18/1/18/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c18/s1/live
+[2026-03-11 04:58:04] INFO core Discovered ONVIF camera: token:17/0/15/1/15/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c15/s0/live
+[2026-03-11 04:58:04] INFO core Discovered ONVIF camera: token:17/0/15/1/15/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c15/s1/live
+[2026-03-11 04:58:05] INFO core Discovered ONVIF camera: token:17/0/20/1/20/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c20/s0/live
+[2026-03-11 04:58:05] INFO core Discovered ONVIF camera: token:17/0/20/1/20/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c20/s1/live
+[2026-03-11 04:58:06] INFO core Discovered ONVIF camera: token:17/0/25/1/25/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c25/s0/live
+[2026-03-11 04:58:06] INFO core Discovered ONVIF camera: token:17/0/25/1/25/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c25/s1/live
+[2026-03-11 04:58:07] INFO core Discovered ONVIF camera: token:17/0/25/1/25/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c25/s2/live
+[2026-03-11 04:58:07] INFO core Discovered ONVIF camera: token:17/0/32/1/32/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c32/s0/live
+[2026-03-11 04:58:08] INFO core Discovered ONVIF camera: token:17/0/32/1/32/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c32/s1/live
+[2026-03-11 04:58:09] INFO core Discovered ONVIF camera: token:17/0/32/1/32/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c32/s2/live
+[2026-03-11 04:58:10] INFO core Discovered ONVIF camera: token:17/0/3/1/3/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c3/s0/live
+[2026-03-11 04:58:10] INFO core Discovered ONVIF camera: token:17/0/3/1/3/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c3/s1/live
+[2026-03-11 04:58:11] INFO core Discovered ONVIF camera: token:17/0/3/1/3/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c3/s2/live
+[2026-03-11 04:58:11] INFO core Discovered ONVIF camera: token:17/0/9/1/9/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c9/s0/live
+[2026-03-11 04:58:12] INFO core Discovered ONVIF camera: token:17/0/9/1/9/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c9/s1/live
+[2026-03-11 04:58:12] INFO core Discovered ONVIF camera: token:17/0/9/1/9/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c9/s2/live
+[2026-03-11 04:58:13] INFO core Discovered ONVIF camera: token:17/0/10/1/10/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c10/s0/live
+[2026-03-11 04:58:14] INFO core Discovered ONVIF camera: token:17/0/10/1/10/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c10/s1/live
+[2026-03-11 04:58:14] INFO core Discovered ONVIF camera: token:17/0/10/1/10/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c10/s2/live
+[2026-03-11 04:58:15] INFO core Discovered ONVIF camera: token:17/0/12/1/12/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c12/s0/live
+[2026-03-11 04:58:15] INFO core Discovered ONVIF camera: token:17/0/12/1/12/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c12/s1/live
+[2026-03-11 04:58:16] INFO core Discovered ONVIF camera: token:17/0/12/1/12/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c12/s2/live
+[2026-03-11 04:58:16] INFO core Discovered ONVIF camera: token:17/0/11/1/11/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c11/s0/live
+[2026-03-11 04:58:17] INFO core Discovered ONVIF camera: token:17/0/11/1/11/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c11/s1/live
+[2026-03-11 04:58:17] INFO core Discovered ONVIF camera: token:17/0/11/1/11/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c11/s2/live
+[2026-03-11 04:58:17] INFO core Discovered ONVIF camera: token:17/0/30/1/30/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c30/s0/live
+[2026-03-11 04:58:18] INFO core Discovered ONVIF camera: token:17/0/30/1/30/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c30/s1/live
+[2026-03-11 04:58:18] INFO core Discovered ONVIF camera: token:17/0/30/1/30/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c30/s2/live
+[2026-03-11 04:58:19] INFO core Discovered ONVIF camera: token:17/0/31/1/31/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c31/s0/live
+[2026-03-11 04:58:20] INFO core Discovered ONVIF camera: token:17/0/31/1/31/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c31/s1/live
+[2026-03-11 04:58:20] INFO core Discovered ONVIF camera: token:17/0/31/1/31/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c31/s2/live
+[2026-03-11 04:58:21] INFO core Discovered ONVIF camera: token:17/0/13/1/13/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c13/s0/live
+[2026-03-11 04:58:21] INFO core Discovered ONVIF camera: token:17/0/13/1/13/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c13/s1/live
+[2026-03-11 04:58:22] INFO core Discovered ONVIF camera: token:17/0/13/1/13/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c13/s2/live
+[2026-03-11 04:58:23] INFO core Discovered ONVIF camera: token:17/0/29/1/29/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c29/s0/live
+[2026-03-11 04:58:23] INFO core Discovered ONVIF camera: token:17/0/29/1/29/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c29/s1/live
+[2026-03-11 04:58:24] INFO core Discovered ONVIF camera: token:17/0/29/1/29/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c29/s2/live
+[2026-03-11 04:58:24] INFO core Discovered ONVIF camera: token:17/0/7/1/7/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c7/s0/live
+[2026-03-11 04:58:25] INFO core Discovered ONVIF camera: token:17/0/7/1/7/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c7/s1/live
+[2026-03-11 04:58:25] INFO core Discovered ONVIF camera: token:17/0/7/1/7/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c7/s2/live
+[2026-03-11 04:58:26] INFO core Discovered ONVIF camera: token:17/0/26/1/26/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c26/s0/live
+[2026-03-11 04:58:26] INFO core Discovered ONVIF camera: token:17/0/26/1/26/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c26/s1/live
+[2026-03-11 04:58:27] INFO core Discovered ONVIF camera: token:17/0/23/1/23/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c23/s0/live
+[2026-03-11 04:58:27] INFO core Discovered ONVIF camera: token:17/0/23/1/23/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c23/s1/live
+[2026-03-11 04:58:28] INFO core Discovered ONVIF camera: token:17/0/24/1/24/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c24/s0/live
+[2026-03-11 04:58:29] INFO core Discovered ONVIF camera: token:17/0/24/1/24/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c24/s1/live
+[2026-03-11 04:58:29] INFO core Discovered ONVIF camera: token:17/0/5/1/5/s0 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c5/s0/live
+[2026-03-11 04:58:30] INFO core Discovered ONVIF camera: token:17/0/5/1/5/s1 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c5/s1/live
+[2026-03-11 04:58:30] INFO core Discovered ONVIF camera: token:17/0/5/1/5/s2 -> rtsp://admin:Qualix%40123@47.247.181.222:554/unicast/c5/s2/live
+[2026-03-11 04:58:30] INFO core [generic] Found 73 cameras via ONVIF
+[2026-03-11 04:58:30] INFO core Fetched 64 cameras from http://47.247.181.222:8080
+[2026-03-11 04:58:41] INFO core Saved NVR 'Labana Interchange' (id=7, created=True) with 64 cameras
+[2026-03-11 04:59:33] INFO core Detected brand 'cpplus' for URL: http://136.232.49.210:20443
+[2026-03-11 04:59:33] INFO core Checking connectivity to 136.232.49.210 on port 20443...
+[2026-03-11 04:59:36] WARNING core NVR web interface at 136.232.49.210:20443 is not reachable. Check power and network.
+[2026-03-11 04:59:36] DEBUG core Using adapter: CpPlusAdapter for brand 'cpplus'
+[2026-03-11 04:59:52] ERROR core Cannot connect: Cannot connect to http://136.232.49.210:20443/web/login
+[2026-03-11 05:02:02] INFO core Detected brand 'generic' for URL: http://182.237.17.139:8080
+[2026-03-11 05:02:02] INFO core Checking connectivity to 182.237.17.139 on port 8080...
+[2026-03-11 05:02:03] DEBUG core Using adapter: GenericAdapter for brand 'generic'
+[2026-03-11 05:02:08] INFO core [Generic] Digest auth OK at http://182.237.17.139:8080/
+[2026-03-11 05:02:08] INFO core [generic] Attempting ONVIF discovery for 182.237.17.139
+[2026-03-11 05:02:08] DEBUG core Trying ONVIF connection to 182.237.17.139:8080
+[2026-03-11 05:02:09] INFO core ONVIF connected successfully to 182.237.17.139:8080
+[2026-03-11 05:02:12] INFO core Discovered ONVIF camera: token:16/0/0/3/1/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c0/s0/live
+[2026-03-11 05:02:12] INFO core Discovered ONVIF camera: token:17/0/15/1/15/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c15/s0/live
+[2026-03-11 05:02:13] INFO core Discovered ONVIF camera: token:17/0/15/1/15/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c15/s1/live
+[2026-03-11 05:02:13] INFO core Discovered ONVIF camera: token:17/0/15/1/15/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c15/s2/live
+[2026-03-11 05:02:14] INFO core Discovered ONVIF camera: token:17/0/29/1/29/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c29/s0/live
+[2026-03-11 05:02:14] INFO core Discovered ONVIF camera: token:17/0/29/1/29/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c29/s1/live
+[2026-03-11 05:02:15] INFO core Discovered ONVIF camera: token:17/0/30/1/30/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c30/s0/live
+[2026-03-11 05:02:15] INFO core Discovered ONVIF camera: token:17/0/30/1/30/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c30/s1/live
+[2026-03-11 05:02:16] INFO core Discovered ONVIF camera: token:17/0/7/1/7/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c7/s0/live
+[2026-03-11 05:02:16] INFO core Discovered ONVIF camera: token:17/0/7/1/7/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c7/s1/live
+[2026-03-11 05:02:17] INFO core Discovered ONVIF camera: token:17/0/7/1/7/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c7/s2/live
+[2026-03-11 05:02:17] INFO core Discovered ONVIF camera: token:17/0/5/1/5/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c5/s0/live
+[2026-03-11 05:02:18] INFO core Discovered ONVIF camera: token:17/0/5/1/5/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c5/s1/live
+[2026-03-11 05:02:19] INFO core Discovered ONVIF camera: token:17/0/5/1/5/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c5/s2/live
+[2026-03-11 05:02:19] INFO core Discovered ONVIF camera: token:17/0/13/1/13/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c13/s0/live
+[2026-03-11 05:02:20] INFO core Discovered ONVIF camera: token:17/0/13/1/13/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c13/s1/live
+[2026-03-11 05:02:21] INFO core Discovered ONVIF camera: token:17/0/4/1/4/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c4/s0/live
+[2026-03-11 05:02:21] INFO core Discovered ONVIF camera: token:17/0/4/1/4/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c4/s1/live
+[2026-03-11 05:02:22] INFO core Discovered ONVIF camera: token:17/0/4/1/4/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c4/s2/live
+[2026-03-11 05:02:22] INFO core Discovered ONVIF camera: token:17/0/10/1/10/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c10/s0/live
+[2026-03-11 05:02:23] INFO core Discovered ONVIF camera: token:17/0/10/1/10/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c10/s1/live
+[2026-03-11 05:02:23] INFO core Discovered ONVIF camera: token:17/0/11/1/11/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c11/s0/live
+[2026-03-11 05:02:24] INFO core Discovered ONVIF camera: token:17/0/11/1/11/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c11/s1/live
+[2026-03-11 05:02:25] INFO core Discovered ONVIF camera: token:17/0/12/1/12/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c12/s0/live
+[2026-03-11 05:02:25] INFO core Discovered ONVIF camera: token:17/0/12/1/12/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c12/s1/live
+[2026-03-11 05:02:29] INFO core Discovered ONVIF camera: token:17/0/9/1/9/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c9/s0/live
+[2026-03-11 05:02:29] INFO core Discovered ONVIF camera: token:17/0/9/1/9/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c9/s1/live
+[2026-03-11 05:02:30] INFO core Discovered ONVIF camera: token:17/0/16/1/16/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c16/s0/live
+[2026-03-11 05:02:31] INFO core Discovered ONVIF camera: token:17/0/16/1/16/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c16/s1/live
+[2026-03-11 05:02:32] INFO core Discovered ONVIF camera: token:17/0/14/1/14/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c14/s0/live
+[2026-03-11 05:02:34] INFO core Discovered ONVIF camera: token:17/0/14/1/14/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c14/s1/live
+[2026-03-11 05:02:35] INFO core Discovered ONVIF camera: token:17/0/2/1/2/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c2/s0/live
+[2026-03-11 05:02:36] INFO core Discovered ONVIF camera: token:17/0/2/1/2/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c2/s1/live
+[2026-03-11 05:02:36] INFO core Discovered ONVIF camera: token:17/0/2/1/2/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c2/s2/live
+[2026-03-11 05:02:37] INFO core Discovered ONVIF camera: token:17/0/17/1/17/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c17/s0/live
+[2026-03-11 05:02:40] INFO core Discovered ONVIF camera: token:17/0/17/1/17/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c17/s1/live
+[2026-03-11 05:02:40] INFO core Discovered ONVIF camera: token:17/0/1/1/1/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c1/s0/live
+[2026-03-11 05:02:41] INFO core Discovered ONVIF camera: token:17/0/1/1/1/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c1/s1/live
+[2026-03-11 05:02:41] INFO core Discovered ONVIF camera: token:17/0/1/1/1/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c1/s2/live
+[2026-03-11 05:02:42] INFO core Discovered ONVIF camera: token:17/0/19/1/19/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c19/s0/live
+[2026-03-11 05:02:42] INFO core Discovered ONVIF camera: token:17/0/19/1/19/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c19/s1/live
+[2026-03-11 05:02:43] INFO core Discovered ONVIF camera: token:17/0/19/1/19/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c19/s2/live
+[2026-03-11 05:02:44] INFO core Discovered ONVIF camera: token:17/0/21/1/21/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c21/s0/live
+[2026-03-11 05:02:44] INFO core Discovered ONVIF camera: token:17/0/21/1/21/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c21/s1/live
+[2026-03-11 05:02:45] INFO core Discovered ONVIF camera: token:17/0/21/1/21/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c21/s2/live
+[2026-03-11 05:02:45] INFO core Discovered ONVIF camera: token:17/0/22/1/22/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c22/s0/live
+[2026-03-11 05:02:47] INFO core Discovered ONVIF camera: token:17/0/22/1/22/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c22/s1/live
+[2026-03-11 05:02:48] INFO core Discovered ONVIF camera: token:17/0/22/1/22/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c22/s2/live
+[2026-03-11 05:02:48] INFO core Discovered ONVIF camera: token:17/0/23/1/23/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c23/s0/live
+[2026-03-11 05:02:49] INFO core Discovered ONVIF camera: token:17/0/23/1/23/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c23/s1/live
+[2026-03-11 05:02:49] INFO core Discovered ONVIF camera: token:17/0/23/1/23/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c23/s2/live
+[2026-03-11 05:02:50] INFO core Discovered ONVIF camera: token:17/0/18/1/18/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c18/s0/live
+[2026-03-11 05:02:51] INFO core Discovered ONVIF camera: token:17/0/18/1/18/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c18/s1/live
+[2026-03-11 05:02:51] INFO core Discovered ONVIF camera: token:17/0/18/1/18/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c18/s2/live
+[2026-03-11 05:02:52] INFO core Discovered ONVIF camera: token:17/0/25/1/25/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c25/s0/live
+[2026-03-11 05:02:52] INFO core Discovered ONVIF camera: token:17/0/25/1/25/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c25/s1/live
+[2026-03-11 05:02:53] INFO core Discovered ONVIF camera: token:17/0/25/1/25/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c25/s2/live
+[2026-03-11 05:02:54] INFO core Discovered ONVIF camera: token:17/0/8/1/8/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c8/s0/live
+[2026-03-11 05:02:54] INFO core Discovered ONVIF camera: token:17/0/8/1/8/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c8/s1/live
+[2026-03-11 05:02:55] INFO core Discovered ONVIF camera: token:17/0/8/1/8/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c8/s2/live
+[2026-03-11 05:02:56] INFO core Discovered ONVIF camera: token:17/0/3/1/3/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c3/s0/live
+[2026-03-11 05:02:56] INFO core Discovered ONVIF camera: token:17/0/3/1/3/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c3/s1/live
+[2026-03-11 05:02:57] INFO core Discovered ONVIF camera: token:17/0/3/1/3/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c3/s2/live
+[2026-03-11 05:02:57] INFO core Discovered ONVIF camera: token:17/0/20/1/20/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c20/s0/live
+[2026-03-11 05:02:58] INFO core Discovered ONVIF camera: token:17/0/20/1/20/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c20/s1/live
+[2026-03-11 05:02:59] INFO core Discovered ONVIF camera: token:17/0/20/1/20/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c20/s2/live
+[2026-03-11 05:02:59] INFO core Discovered ONVIF camera: token:17/0/6/1/6/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c6/s0/live
+[2026-03-11 05:03:00] INFO core Discovered ONVIF camera: token:17/0/6/1/6/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c6/s1/live
+[2026-03-11 05:03:00] INFO core Discovered ONVIF camera: token:17/0/24/1/24/s0 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c24/s0/live
+[2026-03-11 05:03:01] INFO core Discovered ONVIF camera: token:17/0/24/1/24/s1 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c24/s1/live
+[2026-03-11 05:03:02] INFO core Discovered ONVIF camera: token:17/0/24/1/24/s2 -> rtsp://admin:Qualix%40123@182.237.17.139:554/unicast/c24/s2/live
+[2026-03-11 05:03:02] INFO core [generic] Found 71 cameras via ONVIF
+[2026-03-11 05:03:02] INFO core Fetched 64 cameras from http://182.237.17.139:8080
+[2026-03-11 05:03:07] INFO core Saved NVR 'Kuri Khurd Toll Plaza/Rajistan' (id=8, created=True) with 64 cameras
+[2026-03-11 05:11:59] INFO core Deleted NVR id=8 location='Kuri Khurd Toll Plaza/Rajistan'
+[2026-03-11 05:12:02] INFO core Deleted NVR id=7 location='Labana Interchange'
+[2026-03-11 05:12:07] INFO core Deleted NVR id=6 location='Testing'
+[2026-03-11 05:12:47] INFO core Using explicit protocol: http for http://115.247.88.126:82
+[2026-03-11 05:12:47] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 05:12:47] INFO core Checking connectivity to 115.247.88.126 on port 82...
+[2026-03-11 05:12:47] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 05:12:51] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 05:12:51] INFO core Starting camera discovery for 115.247.88.126...
+[2026-03-11 05:12:51] INFO core [generic] Attempting ONVIF discovery for 115.247.88.126
+[2026-03-11 05:12:51] DEBUG core Trying ONVIF connection to 115.247.88.126:82
+[2026-03-11 05:12:53] INFO core ONVIF connected successfully to 115.247.88.126:82
+[2026-03-11 05:12:53] INFO core ONVIF Device Information: {
+    'Manufacturer': 'CPPLUS',
+    'Model': 'CP-UNR-4K4324-I',
+    'FirmwareVersion': '4.001.00AT000.0, Build Date 2021-12-17',
+    'SerialNumber': '2203012444001719',
+    'HardwareId': 'V1.0'
+}
+[2026-03-11 05:12:57] INFO core ONVIF Response: Found 66 profiles
+[2026-03-11 05:12:58] INFO core Discovered ONVIF camera: MediaProfile_Channel1_MainStream (Token: MediaProfile00000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:12:58] INFO core Discovered ONVIF camera: MediaProfile_Channel1_SubStream1 (Token: MediaProfile00001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:12:58] INFO core Discovered ONVIF camera: MediaProfile_Channel2_MainStream (Token: MediaProfile00100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:12:59] INFO core Discovered ONVIF camera: MediaProfile_Channel2_SubStream1 (Token: MediaProfile00101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:12:59] INFO core Discovered ONVIF camera: MediaProfile_Channel3_MainStream (Token: MediaProfile00200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:00] INFO core Discovered ONVIF camera: MediaProfile_Channel3_SubStream1 (Token: MediaProfile00201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:00] INFO core Discovered ONVIF camera: MediaProfile_Channel4_MainStream (Token: MediaProfile00300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:01] INFO core Discovered ONVIF camera: MediaProfile_Channel4_SubStream1 (Token: MediaProfile00301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:01] INFO core Discovered ONVIF camera: MediaProfile_Channel5_MainStream (Token: MediaProfile00400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:02] INFO core Discovered ONVIF camera: MediaProfile_Channel5_SubStream1 (Token: MediaProfile00401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:02] INFO core Discovered ONVIF camera: MediaProfile_Channel6_MainStream (Token: MediaProfile00500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:02] INFO core Discovered ONVIF camera: MediaProfile_Channel6_SubStream1 (Token: MediaProfile00501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:03] INFO core Discovered ONVIF camera: MediaProfile_Channel7_MainStream (Token: MediaProfile00600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:04] INFO core Discovered ONVIF camera: MediaProfile_Channel7_SubStream1 (Token: MediaProfile00601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:04] INFO core Discovered ONVIF camera: MediaProfile_Channel8_MainStream (Token: MediaProfile00700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:05] INFO core Discovered ONVIF camera: MediaProfile_Channel8_SubStream1 (Token: MediaProfile00701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:05] INFO core Discovered ONVIF camera: MediaProfile_Channel9_MainStream (Token: MediaProfile00800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:06] INFO core Discovered ONVIF camera: MediaProfile_Channel9_SubStream1 (Token: MediaProfile00801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:06] INFO core Discovered ONVIF camera: MediaProfile_Channel10_MainStream (Token: MediaProfile00900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=10&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:06] INFO core Discovered ONVIF camera: MediaProfile_Channel10_SubStream1 (Token: MediaProfile00901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=10&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:07] INFO core Discovered ONVIF camera: MediaProfile_Channel11_MainStream (Token: MediaProfile01000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=11&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:07] INFO core Discovered ONVIF camera: MediaProfile_Channel11_SubStream1 (Token: MediaProfile01001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=11&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:08] INFO core Discovered ONVIF camera: MediaProfile_Channel12_MainStream (Token: MediaProfile01100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=12&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:08] INFO core Discovered ONVIF camera: MediaProfile_Channel12_SubStream1 (Token: MediaProfile01101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=12&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:09] INFO core Discovered ONVIF camera: MediaProfile_Channel13_MainStream (Token: MediaProfile01200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=13&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:09] INFO core Discovered ONVIF camera: MediaProfile_Channel13_SubStream1 (Token: MediaProfile01201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=13&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:10] INFO core Discovered ONVIF camera: MediaProfile_Channel14_MainStream (Token: MediaProfile01300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=14&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:10] INFO core Discovered ONVIF camera: MediaProfile_Channel14_SubStream1 (Token: MediaProfile01301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=14&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:11] INFO core Discovered ONVIF camera: MediaProfile_Channel15_MainStream (Token: MediaProfile01400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=15&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:11] INFO core Discovered ONVIF camera: MediaProfile_Channel15_SubStream1 (Token: MediaProfile01401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=15&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:12] INFO core Discovered ONVIF camera: MediaProfile_Channel16_MainStream (Token: MediaProfile01500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=16&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:12] INFO core Discovered ONVIF camera: MediaProfile_Channel16_SubStream1 (Token: MediaProfile01501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=16&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:13] INFO core Discovered ONVIF camera: MediaProfile_Channel17_MainStream (Token: MediaProfile01600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=17&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:13] INFO core Discovered ONVIF camera: MediaProfile_Channel17_SubStream1 (Token: MediaProfile01601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=17&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:13] INFO core Discovered ONVIF camera: MediaProfile_Channel18_MainStream (Token: MediaProfile01700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=18&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:14] INFO core Discovered ONVIF camera: MediaProfile_Channel18_SubStream1 (Token: MediaProfile01701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=18&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:14] INFO core Discovered ONVIF camera: MediaProfile_Channel19_MainStream (Token: MediaProfile01800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=19&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:15] INFO core Discovered ONVIF camera: MediaProfile_Channel19_SubStream1 (Token: MediaProfile01801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=19&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:15] INFO core Discovered ONVIF camera: MediaProfile_Channel20_MainStream (Token: MediaProfile01900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=20&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:15] INFO core Discovered ONVIF camera: MediaProfile_Channel20_SubStream1 (Token: MediaProfile01901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=20&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:16] INFO core Discovered ONVIF camera: MediaProfile_Channel21_MainStream (Token: MediaProfile02000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=21&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:16] INFO core Discovered ONVIF camera: MediaProfile_Channel21_SubStream1 (Token: MediaProfile02001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=21&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:17] INFO core Discovered ONVIF camera: MediaProfile_Channel22_MainStream (Token: MediaProfile02100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=22&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:17] INFO core Discovered ONVIF camera: MediaProfile_Channel22_SubStream1 (Token: MediaProfile02101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=22&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:18] INFO core Discovered ONVIF camera: MediaProfile_Channel23_MainStream (Token: MediaProfile02200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=23&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:18] INFO core Discovered ONVIF camera: MediaProfile_Channel23_SubStream1 (Token: MediaProfile02201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=23&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:19] INFO core Discovered ONVIF camera: MediaProfile_Channel24_MainStream (Token: MediaProfile02300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=24&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:19] INFO core Discovered ONVIF camera: MediaProfile_Channel24_SubStream1 (Token: MediaProfile02301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=24&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:19] INFO core Discovered ONVIF camera: MediaProfile_Channel25_MainStream (Token: MediaProfile02400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=25&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:20] INFO core Discovered ONVIF camera: MediaProfile_Channel25_SubStream1 (Token: MediaProfile02401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=25&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:20] INFO core Discovered ONVIF camera: MediaProfile_Channel26_MainStream (Token: MediaProfile02500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=26&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:21] INFO core Discovered ONVIF camera: MediaProfile_Channel26_SubStream1 (Token: MediaProfile02501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=26&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:21] INFO core Discovered ONVIF camera: MediaProfile_Channel27_MainStream (Token: MediaProfile02600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=27&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:22] INFO core Discovered ONVIF camera: MediaProfile_Channel27_SubStream1 (Token: MediaProfile02601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=27&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:22] INFO core Discovered ONVIF camera: MediaProfile_Channel28_MainStream (Token: MediaProfile02700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=28&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:23] INFO core Discovered ONVIF camera: MediaProfile_Channel28_SubStream1 (Token: MediaProfile02701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=28&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:23] INFO core Discovered ONVIF camera: MediaProfile_Channel29_MainStream (Token: MediaProfile02800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=29&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:24] INFO core Discovered ONVIF camera: MediaProfile_Channel29_SubStream1 (Token: MediaProfile02801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=29&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:24] INFO core Discovered ONVIF camera: MediaProfile_Channel30_MainStream (Token: MediaProfile02900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=30&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:24] INFO core Discovered ONVIF camera: MediaProfile_Channel30_SubStream1 (Token: MediaProfile02901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=30&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:25] INFO core Discovered ONVIF camera: MediaProfile_Channel31_MainStream (Token: MediaProfile03000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:25] INFO core Discovered ONVIF camera: MediaProfile_Channel31_SubStream1 (Token: MediaProfile03001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:26] INFO core Discovered ONVIF camera: MediaProfile_Channel31_SubStream2 (Token: MediaProfile03002) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=2&unicast=true&proto=Onvif
+[2026-03-11 05:13:26] INFO core Discovered ONVIF camera: MediaProfile_Channel32_MainStream (Token: MediaProfile03100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:13:27] INFO core Discovered ONVIF camera: MediaProfile_Channel32_SubStream1 (Token: MediaProfile03101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:13:27] INFO core Discovered ONVIF camera: MediaProfile_Channel32_SubStream2 (Token: MediaProfile03102) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=2&unicast=true&proto=Onvif
+[2026-03-11 05:13:27] INFO core [generic] ONVIF Response: Found 66 cameras via ONVIF
+[2026-03-11 05:13:27] INFO core Discovery complete. Found 64 validated camera(s).
+[2026-03-11 05:13:27] INFO core Fetched 64 cameras from http://115.247.88.126:82
+[2026-03-11 05:13:40] INFO core Saved NVR 'Testing' (id=9, created=True) with 64 cameras
+[2026-03-11 05:15:55] INFO core Deleted NVR id=9 location='Testing'
+[2026-03-11 05:21:44] INFO core Using explicit protocol: http for http://115.247.88.126:82
+[2026-03-11 05:21:44] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 05:21:44] INFO core Checking connectivity to 115.247.88.126 on port 82...
+[2026-03-11 05:21:44] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 05:21:49] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 05:21:49] INFO core Starting camera discovery for 115.247.88.126...
+[2026-03-11 05:21:49] INFO core [generic] Attempting ONVIF discovery for 115.247.88.126
+[2026-03-11 05:21:49] DEBUG core Trying ONVIF connection to 115.247.88.126:82
+[2026-03-11 05:21:51] INFO core ONVIF connected successfully to 115.247.88.126:82
+[2026-03-11 05:21:51] INFO core ONVIF Device Information: {
+    'Manufacturer': 'CPPLUS',
+    'Model': 'CP-UNR-4K4324-I',
+    'FirmwareVersion': '4.001.00AT000.0, Build Date 2021-12-17',
+    'SerialNumber': '2203012444001719',
+    'HardwareId': 'V1.0'
+}
+[2026-03-11 05:21:55] INFO core ONVIF Response: Found 66 profiles
+[2026-03-11 05:21:56] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:22:26] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel1_MainStream (MediaProfile00000): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:22:26] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:22:56] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel1_MainStream (MediaProfile00000)
+[2026-03-11 05:22:56] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:23:26] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel1_SubStream1 (MediaProfile00001): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:23:26] DEBUG core Validating RTSP stream: rtsp://admin:admin%40223@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:23:56] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel1_SubStream1 (MediaProfile00001)
+[2026-03-11 05:23:57] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:24:27] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel2_MainStream (MediaProfile00100): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:24:27] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:24:57] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel2_MainStream (MediaProfile00100)
+[2026-03-11 05:24:57] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:25:27] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel2_SubStream1 (MediaProfile00101): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:25:27] DEBUG core Validating RTSP stream: rtsp://admin:admin%40223@115.247.88.126:554/cam/realmonitor?channel=2&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:25:57] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel2_SubStream1 (MediaProfile00101)
+[2026-03-11 05:25:58] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:26:28] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel3_MainStream (MediaProfile00200): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:26:28] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:26:58] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel3_MainStream (MediaProfile00200)
+[2026-03-11 05:26:59] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:27:29] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel3_SubStream1 (MediaProfile00201): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:27:29] DEBUG core Validating RTSP stream: rtsp://admin:admin%40223@115.247.88.126:554/cam/realmonitor?channel=3&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:27:59] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel3_SubStream1 (MediaProfile00201)
+[2026-03-11 05:27:59] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:28:29] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel4_MainStream (MediaProfile00300): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:28:29] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:28:59] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel4_MainStream (MediaProfile00300)
+[2026-03-11 05:29:00] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:29:30] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel4_SubStream1 (MediaProfile00301): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:29:30] DEBUG core Validating RTSP stream: rtsp://admin:admin%40223@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:30:00] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel4_SubStream1 (MediaProfile00301)
+[2026-03-11 05:30:01] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:30:31] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel5_MainStream (MediaProfile00400): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:30:31] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:31:01] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel5_MainStream (MediaProfile00400)
+[2026-03-11 05:31:01] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:31:31] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel5_SubStream1 (MediaProfile00401): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:31:31] DEBUG core Validating RTSP stream: rtsp://admin:admin%40223@115.247.88.126:554/cam/realmonitor?channel=5&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:32:02] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel5_SubStream1 (MediaProfile00401)
+[2026-03-11 05:32:03] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:32:33] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel6_MainStream (MediaProfile00500): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:32:33] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:33:03] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel6_MainStream (MediaProfile00500)
+[2026-03-11 05:33:03] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:33:33] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel6_SubStream1 (MediaProfile00501): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:33:33] DEBUG core Validating RTSP stream: rtsp://admin:admin%40223@115.247.88.126:554/cam/realmonitor?channel=6&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:34:03] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel6_SubStream1 (MediaProfile00501)
+[2026-03-11 05:34:04] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:34:34] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel7_MainStream (MediaProfile00600): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:34:34] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:35:04] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel7_MainStream (MediaProfile00600)
+[2026-03-11 05:35:05] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:35:35] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel7_SubStream1 (MediaProfile00601): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:35:35] DEBUG core Validating RTSP stream: rtsp://admin:admin%40223@115.247.88.126:554/cam/realmonitor?channel=7&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:36:05] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel7_SubStream1 (MediaProfile00601)
+[2026-03-11 05:36:06] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:36:36] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel8_MainStream (MediaProfile00700): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:36:36] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:37:06] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel8_MainStream (MediaProfile00700)
+[2026-03-11 05:37:06] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:37:36] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel8_SubStream1 (MediaProfile00701): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:37:36] DEBUG core Validating RTSP stream: rtsp://admin:admin%40223@115.247.88.126:554/cam/realmonitor?channel=8&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:38:06] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel8_SubStream1 (MediaProfile00701)
+[2026-03-11 05:38:07] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:38:37] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel9_MainStream (MediaProfile00800): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:38:37] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:39:07] ERROR core Failed to validate both main and substream for ONVIF camera MediaProfile_Channel9_MainStream (MediaProfile00800)
+[2026-03-11 05:39:07] DEBUG core Validating RTSP stream: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:39:38] WARNING core Main stream failed for ONVIF camera MediaProfile_Channel9_SubStream1 (MediaProfile00801): Could not open RTSP stream. Trying substream fallback...
+[2026-03-11 05:39:38] DEBUG core Validating RTSP stream: rtsp://admin:admin%40223@115.247.88.126:554/cam/realmonitor?channel=9&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:11] INFO core Using explicit protocol: http for http://115.247.88.126:82
+[2026-03-11 05:47:11] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 05:47:11] INFO core Checking connectivity to 115.247.88.126 on port 82...
+[2026-03-11 05:47:11] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 05:47:15] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 05:47:15] INFO core Starting camera discovery for 115.247.88.126...
+[2026-03-11 05:47:15] INFO core [generic] Attempting ONVIF discovery for 115.247.88.126
+[2026-03-11 05:47:15] DEBUG core Trying ONVIF connection to 115.247.88.126:82
+[2026-03-11 05:47:16] INFO core ONVIF connected successfully to 115.247.88.126:82
+[2026-03-11 05:47:16] INFO core ONVIF Device Information: {
+    'Manufacturer': 'CPPLUS',
+    'Model': 'CP-UNR-4K4324-I',
+    'FirmwareVersion': '4.001.00AT000.0, Build Date 2021-12-17',
+    'SerialNumber': '2203012444001719',
+    'HardwareId': 'V1.0'
+}
+[2026-03-11 05:47:20] INFO core ONVIF Response: Found 66 profiles
+[2026-03-11 05:47:21] INFO core Discovered ONVIF camera: MediaProfile_Channel1_MainStream (Token: MediaProfile00000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:21] INFO core Discovered ONVIF camera: MediaProfile_Channel1_SubStream1 (Token: MediaProfile00001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:21] INFO core Discovered ONVIF camera: MediaProfile_Channel2_MainStream (Token: MediaProfile00100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:22] INFO core Discovered ONVIF camera: MediaProfile_Channel2_SubStream1 (Token: MediaProfile00101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:22] INFO core Discovered ONVIF camera: MediaProfile_Channel3_MainStream (Token: MediaProfile00200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:23] INFO core Discovered ONVIF camera: MediaProfile_Channel3_SubStream1 (Token: MediaProfile00201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:23] INFO core Discovered ONVIF camera: MediaProfile_Channel4_MainStream (Token: MediaProfile00300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:24] INFO core Discovered ONVIF camera: MediaProfile_Channel4_SubStream1 (Token: MediaProfile00301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:25] INFO core Discovered ONVIF camera: MediaProfile_Channel5_MainStream (Token: MediaProfile00400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:25] INFO core Discovered ONVIF camera: MediaProfile_Channel5_SubStream1 (Token: MediaProfile00401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:26] INFO core Discovered ONVIF camera: MediaProfile_Channel6_MainStream (Token: MediaProfile00500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:26] INFO core Discovered ONVIF camera: MediaProfile_Channel6_SubStream1 (Token: MediaProfile00501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:27] INFO core Discovered ONVIF camera: MediaProfile_Channel7_MainStream (Token: MediaProfile00600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:27] INFO core Discovered ONVIF camera: MediaProfile_Channel7_SubStream1 (Token: MediaProfile00601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:28] INFO core Discovered ONVIF camera: MediaProfile_Channel8_MainStream (Token: MediaProfile00700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:28] INFO core Discovered ONVIF camera: MediaProfile_Channel8_SubStream1 (Token: MediaProfile00701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:29] INFO core Discovered ONVIF camera: MediaProfile_Channel9_MainStream (Token: MediaProfile00800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:29] INFO core Discovered ONVIF camera: MediaProfile_Channel9_SubStream1 (Token: MediaProfile00801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:30] INFO core Discovered ONVIF camera: MediaProfile_Channel10_MainStream (Token: MediaProfile00900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=10&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:30] INFO core Discovered ONVIF camera: MediaProfile_Channel10_SubStream1 (Token: MediaProfile00901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=10&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:31] INFO core Discovered ONVIF camera: MediaProfile_Channel11_MainStream (Token: MediaProfile01000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=11&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:31] INFO core Discovered ONVIF camera: MediaProfile_Channel11_SubStream1 (Token: MediaProfile01001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=11&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:32] INFO core Discovered ONVIF camera: MediaProfile_Channel12_MainStream (Token: MediaProfile01100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=12&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:32] INFO core Discovered ONVIF camera: MediaProfile_Channel12_SubStream1 (Token: MediaProfile01101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=12&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:33] INFO core Discovered ONVIF camera: MediaProfile_Channel13_MainStream (Token: MediaProfile01200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=13&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:33] INFO core Discovered ONVIF camera: MediaProfile_Channel13_SubStream1 (Token: MediaProfile01201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=13&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:34] INFO core Discovered ONVIF camera: MediaProfile_Channel14_MainStream (Token: MediaProfile01300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=14&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:34] INFO core Discovered ONVIF camera: MediaProfile_Channel14_SubStream1 (Token: MediaProfile01301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=14&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:35] INFO core Discovered ONVIF camera: MediaProfile_Channel15_MainStream (Token: MediaProfile01400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=15&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:35] INFO core Discovered ONVIF camera: MediaProfile_Channel15_SubStream1 (Token: MediaProfile01401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=15&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:35] INFO core Discovered ONVIF camera: MediaProfile_Channel16_MainStream (Token: MediaProfile01500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=16&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:36] INFO core Discovered ONVIF camera: MediaProfile_Channel16_SubStream1 (Token: MediaProfile01501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=16&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:36] INFO core Discovered ONVIF camera: MediaProfile_Channel17_MainStream (Token: MediaProfile01600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=17&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:37] INFO core Discovered ONVIF camera: MediaProfile_Channel17_SubStream1 (Token: MediaProfile01601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=17&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:37] INFO core Discovered ONVIF camera: MediaProfile_Channel18_MainStream (Token: MediaProfile01700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=18&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:38] INFO core Discovered ONVIF camera: MediaProfile_Channel18_SubStream1 (Token: MediaProfile01701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=18&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:38] INFO core Discovered ONVIF camera: MediaProfile_Channel19_MainStream (Token: MediaProfile01800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=19&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:39] INFO core Discovered ONVIF camera: MediaProfile_Channel19_SubStream1 (Token: MediaProfile01801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=19&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:39] INFO core Discovered ONVIF camera: MediaProfile_Channel20_MainStream (Token: MediaProfile01900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=20&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:39] INFO core Discovered ONVIF camera: MediaProfile_Channel20_SubStream1 (Token: MediaProfile01901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=20&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:40] INFO core Discovered ONVIF camera: MediaProfile_Channel21_MainStream (Token: MediaProfile02000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=21&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:40] INFO core Discovered ONVIF camera: MediaProfile_Channel21_SubStream1 (Token: MediaProfile02001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=21&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:41] INFO core Discovered ONVIF camera: MediaProfile_Channel22_MainStream (Token: MediaProfile02100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=22&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:41] INFO core Discovered ONVIF camera: MediaProfile_Channel22_SubStream1 (Token: MediaProfile02101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=22&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:41] INFO core Discovered ONVIF camera: MediaProfile_Channel23_MainStream (Token: MediaProfile02200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=23&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:42] INFO core Discovered ONVIF camera: MediaProfile_Channel23_SubStream1 (Token: MediaProfile02201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=23&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:42] INFO core Discovered ONVIF camera: MediaProfile_Channel24_MainStream (Token: MediaProfile02300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=24&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:43] INFO core Discovered ONVIF camera: MediaProfile_Channel24_SubStream1 (Token: MediaProfile02301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=24&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:43] INFO core Discovered ONVIF camera: MediaProfile_Channel25_MainStream (Token: MediaProfile02400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=25&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:44] INFO core Discovered ONVIF camera: MediaProfile_Channel25_SubStream1 (Token: MediaProfile02401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=25&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:44] INFO core Discovered ONVIF camera: MediaProfile_Channel26_MainStream (Token: MediaProfile02500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=26&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:45] INFO core Discovered ONVIF camera: MediaProfile_Channel26_SubStream1 (Token: MediaProfile02501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=26&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:45] INFO core Discovered ONVIF camera: MediaProfile_Channel27_MainStream (Token: MediaProfile02600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=27&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:46] INFO core Discovered ONVIF camera: MediaProfile_Channel27_SubStream1 (Token: MediaProfile02601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=27&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:46] INFO core Discovered ONVIF camera: MediaProfile_Channel28_MainStream (Token: MediaProfile02700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=28&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:46] INFO core Discovered ONVIF camera: MediaProfile_Channel28_SubStream1 (Token: MediaProfile02701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=28&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:47] INFO core Discovered ONVIF camera: MediaProfile_Channel29_MainStream (Token: MediaProfile02800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=29&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:47] INFO core Discovered ONVIF camera: MediaProfile_Channel29_SubStream1 (Token: MediaProfile02801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=29&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:48] INFO core Discovered ONVIF camera: MediaProfile_Channel30_MainStream (Token: MediaProfile02900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=30&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:48] INFO core Discovered ONVIF camera: MediaProfile_Channel30_SubStream1 (Token: MediaProfile02901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=30&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:48] INFO core Discovered ONVIF camera: MediaProfile_Channel31_MainStream (Token: MediaProfile03000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:49] INFO core Discovered ONVIF camera: MediaProfile_Channel31_SubStream1 (Token: MediaProfile03001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:49] INFO core Discovered ONVIF camera: MediaProfile_Channel31_SubStream2 (Token: MediaProfile03002) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=2&unicast=true&proto=Onvif
+[2026-03-11 05:47:50] INFO core Discovered ONVIF camera: MediaProfile_Channel32_MainStream (Token: MediaProfile03100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:47:51] INFO core Discovered ONVIF camera: MediaProfile_Channel32_SubStream1 (Token: MediaProfile03101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:47:51] INFO core Discovered ONVIF camera: MediaProfile_Channel32_SubStream2 (Token: MediaProfile03102) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=2&unicast=true&proto=Onvif
+[2026-03-11 05:47:51] INFO core [generic] ONVIF Response: Found 66 cameras via ONVIF
+[2026-03-11 05:47:51] INFO core Discovery complete. Found 64 camera(s).
+[2026-03-11 05:47:51] INFO core Fetched 64 cameras from http://115.247.88.126:82
+[2026-03-11 05:48:07] INFO core Using explicit protocol: http for http://115.247.88.126:82
+[2026-03-11 05:48:07] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-11 05:48:07] INFO core Checking connectivity to 115.247.88.126 on port 82...
+[2026-03-11 05:48:07] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 05:48:11] INFO core [Generic] Digest auth OK at http://115.247.88.126:82/
+[2026-03-11 05:48:11] INFO core Starting camera discovery for 115.247.88.126...
+[2026-03-11 05:48:11] INFO core [generic] Attempting ONVIF discovery for 115.247.88.126
+[2026-03-11 05:48:11] DEBUG core Trying ONVIF connection to 115.247.88.126:82
+[2026-03-11 05:48:15] INFO core ONVIF connected successfully to 115.247.88.126:82
+[2026-03-11 05:48:15] INFO core ONVIF Device Information: {
+    'Manufacturer': 'CPPLUS',
+    'Model': 'CP-UNR-4K4324-I',
+    'FirmwareVersion': '4.001.00AT000.0, Build Date 2021-12-17',
+    'SerialNumber': '2203012444001719',
+    'HardwareId': 'V1.0'
+}
+[2026-03-11 05:48:19] INFO core ONVIF Response: Found 66 profiles
+[2026-03-11 05:48:19] INFO core Discovered ONVIF camera: MediaProfile_Channel1_MainStream (Token: MediaProfile00000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:20] INFO core Discovered ONVIF camera: MediaProfile_Channel1_SubStream1 (Token: MediaProfile00001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:20] INFO core Discovered ONVIF camera: MediaProfile_Channel2_MainStream (Token: MediaProfile00100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:21] INFO core Discovered ONVIF camera: MediaProfile_Channel2_SubStream1 (Token: MediaProfile00101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:21] INFO core Discovered ONVIF camera: MediaProfile_Channel3_MainStream (Token: MediaProfile00200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:22] INFO core Discovered ONVIF camera: MediaProfile_Channel3_SubStream1 (Token: MediaProfile00201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:22] INFO core Discovered ONVIF camera: MediaProfile_Channel4_MainStream (Token: MediaProfile00300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:23] INFO core Discovered ONVIF camera: MediaProfile_Channel4_SubStream1 (Token: MediaProfile00301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:23] INFO core Discovered ONVIF camera: MediaProfile_Channel5_MainStream (Token: MediaProfile00400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:23] INFO core Discovered ONVIF camera: MediaProfile_Channel5_SubStream1 (Token: MediaProfile00401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:24] INFO core Discovered ONVIF camera: MediaProfile_Channel6_MainStream (Token: MediaProfile00500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:24] INFO core Discovered ONVIF camera: MediaProfile_Channel6_SubStream1 (Token: MediaProfile00501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:25] INFO core Discovered ONVIF camera: MediaProfile_Channel7_MainStream (Token: MediaProfile00600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:25] INFO core Discovered ONVIF camera: MediaProfile_Channel7_SubStream1 (Token: MediaProfile00601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:25] INFO core Discovered ONVIF camera: MediaProfile_Channel8_MainStream (Token: MediaProfile00700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:26] INFO core Discovered ONVIF camera: MediaProfile_Channel8_SubStream1 (Token: MediaProfile00701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:26] INFO core Discovered ONVIF camera: MediaProfile_Channel9_MainStream (Token: MediaProfile00800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:27] INFO core Discovered ONVIF camera: MediaProfile_Channel9_SubStream1 (Token: MediaProfile00801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:27] INFO core Discovered ONVIF camera: MediaProfile_Channel10_MainStream (Token: MediaProfile00900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=10&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:28] INFO core Discovered ONVIF camera: MediaProfile_Channel10_SubStream1 (Token: MediaProfile00901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=10&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:28] INFO core Discovered ONVIF camera: MediaProfile_Channel11_MainStream (Token: MediaProfile01000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=11&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:29] INFO core Discovered ONVIF camera: MediaProfile_Channel11_SubStream1 (Token: MediaProfile01001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=11&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:29] INFO core Discovered ONVIF camera: MediaProfile_Channel12_MainStream (Token: MediaProfile01100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=12&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:29] INFO core Discovered ONVIF camera: MediaProfile_Channel12_SubStream1 (Token: MediaProfile01101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=12&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:30] INFO core Discovered ONVIF camera: MediaProfile_Channel13_MainStream (Token: MediaProfile01200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=13&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:30] INFO core Discovered ONVIF camera: MediaProfile_Channel13_SubStream1 (Token: MediaProfile01201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=13&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:31] INFO core Discovered ONVIF camera: MediaProfile_Channel14_MainStream (Token: MediaProfile01300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=14&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:31] INFO core Discovered ONVIF camera: MediaProfile_Channel14_SubStream1 (Token: MediaProfile01301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=14&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:32] INFO core Discovered ONVIF camera: MediaProfile_Channel15_MainStream (Token: MediaProfile01400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=15&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:32] INFO core Discovered ONVIF camera: MediaProfile_Channel15_SubStream1 (Token: MediaProfile01401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=15&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:33] INFO core Discovered ONVIF camera: MediaProfile_Channel16_MainStream (Token: MediaProfile01500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=16&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:33] INFO core Discovered ONVIF camera: MediaProfile_Channel16_SubStream1 (Token: MediaProfile01501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=16&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:33] INFO core Discovered ONVIF camera: MediaProfile_Channel17_MainStream (Token: MediaProfile01600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=17&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:34] INFO core Discovered ONVIF camera: MediaProfile_Channel17_SubStream1 (Token: MediaProfile01601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=17&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:34] INFO core Discovered ONVIF camera: MediaProfile_Channel18_MainStream (Token: MediaProfile01700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=18&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:35] INFO core Discovered ONVIF camera: MediaProfile_Channel18_SubStream1 (Token: MediaProfile01701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=18&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:35] INFO core Discovered ONVIF camera: MediaProfile_Channel19_MainStream (Token: MediaProfile01800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=19&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:36] INFO core Discovered ONVIF camera: MediaProfile_Channel19_SubStream1 (Token: MediaProfile01801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=19&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:36] INFO core Discovered ONVIF camera: MediaProfile_Channel20_MainStream (Token: MediaProfile01900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=20&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:36] INFO core Discovered ONVIF camera: MediaProfile_Channel20_SubStream1 (Token: MediaProfile01901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=20&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:37] INFO core Discovered ONVIF camera: MediaProfile_Channel21_MainStream (Token: MediaProfile02000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=21&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:37] INFO core Discovered ONVIF camera: MediaProfile_Channel21_SubStream1 (Token: MediaProfile02001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=21&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:38] INFO core Discovered ONVIF camera: MediaProfile_Channel22_MainStream (Token: MediaProfile02100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=22&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:38] INFO core Discovered ONVIF camera: MediaProfile_Channel22_SubStream1 (Token: MediaProfile02101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=22&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:38] INFO core Discovered ONVIF camera: MediaProfile_Channel23_MainStream (Token: MediaProfile02200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=23&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:39] INFO core Discovered ONVIF camera: MediaProfile_Channel23_SubStream1 (Token: MediaProfile02201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=23&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:39] INFO core Discovered ONVIF camera: MediaProfile_Channel24_MainStream (Token: MediaProfile02300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=24&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:40] INFO core Discovered ONVIF camera: MediaProfile_Channel24_SubStream1 (Token: MediaProfile02301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=24&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:40] INFO core Discovered ONVIF camera: MediaProfile_Channel25_MainStream (Token: MediaProfile02400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=25&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:40] INFO core Discovered ONVIF camera: MediaProfile_Channel25_SubStream1 (Token: MediaProfile02401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=25&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:41] INFO core Discovered ONVIF camera: MediaProfile_Channel26_MainStream (Token: MediaProfile02500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=26&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:41] INFO core Discovered ONVIF camera: MediaProfile_Channel26_SubStream1 (Token: MediaProfile02501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=26&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:42] INFO core Discovered ONVIF camera: MediaProfile_Channel27_MainStream (Token: MediaProfile02600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=27&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:42] INFO core Discovered ONVIF camera: MediaProfile_Channel27_SubStream1 (Token: MediaProfile02601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=27&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:42] INFO core Discovered ONVIF camera: MediaProfile_Channel28_MainStream (Token: MediaProfile02700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=28&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:43] INFO core Discovered ONVIF camera: MediaProfile_Channel28_SubStream1 (Token: MediaProfile02701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=28&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:43] INFO core Discovered ONVIF camera: MediaProfile_Channel29_MainStream (Token: MediaProfile02800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=29&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:44] INFO core Discovered ONVIF camera: MediaProfile_Channel29_SubStream1 (Token: MediaProfile02801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=29&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:44] INFO core Discovered ONVIF camera: MediaProfile_Channel30_MainStream (Token: MediaProfile02900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=30&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:44] INFO core Discovered ONVIF camera: MediaProfile_Channel30_SubStream1 (Token: MediaProfile02901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=30&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:45] INFO core Discovered ONVIF camera: MediaProfile_Channel31_MainStream (Token: MediaProfile03000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:45] INFO core Discovered ONVIF camera: MediaProfile_Channel31_SubStream1 (Token: MediaProfile03001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:46] INFO core Discovered ONVIF camera: MediaProfile_Channel31_SubStream2 (Token: MediaProfile03002) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=2&unicast=true&proto=Onvif
+[2026-03-11 05:48:46] INFO core Discovered ONVIF camera: MediaProfile_Channel32_MainStream (Token: MediaProfile03100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=0&unicast=true&proto=Onvif
+[2026-03-11 05:48:46] INFO core Discovered ONVIF camera: MediaProfile_Channel32_SubStream1 (Token: MediaProfile03101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=1&unicast=true&proto=Onvif
+[2026-03-11 05:48:47] INFO core Discovered ONVIF camera: MediaProfile_Channel32_SubStream2 (Token: MediaProfile03102) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=2&unicast=true&proto=Onvif
+[2026-03-11 05:48:47] INFO core [generic] ONVIF Response: Found 66 cameras via ONVIF
+[2026-03-11 05:48:47] INFO core Discovery complete. Found 64 camera(s).
+[2026-03-11 05:48:47] INFO core Fetched 64 cameras from http://115.247.88.126:82
+[2026-03-11 06:04:18] INFO core Using explicit protocol: http for http://61.246.225.154:8001
+[2026-03-11 06:04:18] INFO core Detected brand 'unknown' for URL: http://61.246.225.154:8001
+[2026-03-11 06:04:18] INFO core Checking connectivity to 61.246.225.154 on port 8001...
+[2026-03-11 06:04:18] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 06:04:22] INFO core [Generic] Form login OK at http://61.246.225.154:8001/
+[2026-03-11 06:04:22] INFO core Starting camera discovery for 61.246.225.154...
+[2026-03-11 06:04:22] INFO core [generic] Attempting ONVIF discovery for 61.246.225.154
+[2026-03-11 06:04:22] DEBUG core Trying ONVIF connection to 61.246.225.154:8001
+[2026-03-11 06:04:23] DEBUG core ONVIF connection failed on port 8001: Unknown error: Unknown fault occured
+[2026-03-11 06:04:23] DEBUG core Trying ONVIF connection to 61.246.225.154:82
+[2026-03-11 06:04:23] WARNING core Could not establish ONVIF connection to 61.246.225.154
+[2026-03-11 06:04:23] INFO core [generic] ONVIF failed, attempting brand-specific API discovery
+[2026-03-11 06:04:24] INFO core [Generic] API discovery success at /ISAPI/System/Video/inputs/channels
+[2026-03-11 06:04:24] INFO core [generic] API Response: Found 1 cameras via API
+[2026-03-11 06:04:24] INFO core Discovery complete. Found 1 camera(s).
+[2026-03-11 06:04:24] INFO core Fetched 1 cameras from http://61.246.225.154:8001
+[2026-03-11 06:04:27] INFO core Using explicit protocol: http for http://61.246.225.154:8001
+[2026-03-11 06:04:27] INFO core Detected brand 'unknown' for URL: http://61.246.225.154:8001
+[2026-03-11 06:04:27] INFO core Checking connectivity to 61.246.225.154 on port 8001...
+[2026-03-11 06:04:28] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 06:04:32] INFO core [Generic] Form login OK at http://61.246.225.154:8001/
+[2026-03-11 06:04:32] INFO core Starting camera discovery for 61.246.225.154...
+[2026-03-11 06:04:32] INFO core [generic] Attempting ONVIF discovery for 61.246.225.154
+[2026-03-11 06:04:32] DEBUG core Trying ONVIF connection to 61.246.225.154:8001
+[2026-03-11 06:04:33] DEBUG core ONVIF connection failed on port 8001: Unknown error: Unknown fault occured
+[2026-03-11 06:04:33] DEBUG core Trying ONVIF connection to 61.246.225.154:82
+[2026-03-11 06:04:33] WARNING core Could not establish ONVIF connection to 61.246.225.154
+[2026-03-11 06:04:33] INFO core [generic] ONVIF failed, attempting brand-specific API discovery
+[2026-03-11 06:04:34] INFO core [Generic] API discovery success at /ISAPI/System/Video/inputs/channels
+[2026-03-11 06:04:34] INFO core [generic] API Response: Found 1 cameras via API
+[2026-03-11 06:04:34] INFO core Discovery complete. Found 1 camera(s).
+[2026-03-11 06:04:34] INFO core Fetched 1 cameras from http://61.246.225.154:8001
+[2026-03-11 06:13:40] INFO core Using explicit protocol: http for http://61.246.225.154:8001
+[2026-03-11 06:13:40] INFO core Detected brand 'unknown' for URL: http://61.246.225.154:8001
+[2026-03-11 06:13:40] INFO core Checking connectivity to 61.246.225.154 on port 8001...
+[2026-03-11 06:13:40] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 06:13:44] INFO core [Generic] Form login OK at http://61.246.225.154:8001/
+[2026-03-11 06:13:44] INFO core Starting camera discovery for 61.246.225.154...
+[2026-03-11 06:13:44] INFO core [generic] Attempting ONVIF discovery for 61.246.225.154
+[2026-03-11 06:13:44] DEBUG core Trying ONVIF connection to 61.246.225.154:8001
+[2026-03-11 06:13:44] DEBUG core ONVIF connection failed on port 8001: Unknown error: Unknown fault occured
+[2026-03-11 06:13:44] DEBUG core Trying ONVIF connection to 61.246.225.154:82
+[2026-03-11 06:13:45] WARNING core Could not establish ONVIF connection to 61.246.225.154
+[2026-03-11 06:13:45] INFO core [generic] ONVIF failed, attempting brand-specific API discovery
+[2026-03-11 06:13:45] INFO core [Generic] API discovery success at /ISAPI/System/Video/inputs/channels
+[2026-03-11 06:13:45] INFO core [generic] API Response: Found 1 cameras via API
+[2026-03-11 06:13:45] INFO core Discovery complete. Found 1 camera(s).
+[2026-03-11 06:13:45] INFO core Fetched 1 cameras from http://61.246.225.154:8001
+[2026-03-11 06:22:57] INFO core Using explicit protocol: http for http://61.246.225.154:8001
+[2026-03-11 06:22:57] INFO core Detected brand 'unknown' for URL: http://61.246.225.154:8001
+[2026-03-11 06:22:57] INFO core Checking connectivity to 61.246.225.154 on port 8001...
+[2026-03-11 06:22:57] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 06:23:02] INFO core [Generic] Form login OK at http://61.246.225.154:8001/
+[2026-03-11 06:23:02] INFO core Starting camera discovery for 61.246.225.154...
+[2026-03-11 06:23:02] INFO core [generic] Attempting ONVIF discovery for 61.246.225.154
+[2026-03-11 06:23:02] DEBUG core Trying ONVIF connection to 61.246.225.154:8001
+[2026-03-11 06:23:02] DEBUG core ONVIF connection failed on port 8001: Unknown error: Unknown fault occured
+[2026-03-11 06:23:02] DEBUG core Trying ONVIF connection to 61.246.225.154:82
+[2026-03-11 06:23:03] WARNING core Could not establish ONVIF connection to 61.246.225.154
+[2026-03-11 06:23:03] INFO core [generic] ONVIF returned 0 cameras, attempting brand-specific API discovery
+[2026-03-11 06:23:03] INFO core [Generic] API discovery success at /ISAPI/System/Video/inputs/channels
+[2026-03-11 06:23:03] INFO core [generic] API Response: Found 1 cameras via API
+[2026-03-11 06:23:03] INFO core Discovery complete. Found 1 camera(s).
+[2026-03-11 06:23:03] INFO core Fetched 1 cameras from http://61.246.225.154:8001
+[2026-03-11 06:27:57] INFO core Using explicit protocol: http for http://61.246.225.154:8001
+[2026-03-11 06:27:57] INFO core Detected brand 'unknown' for URL: http://61.246.225.154:8001
+[2026-03-11 06:27:57] INFO core Checking connectivity to 61.246.225.154 on port 8001...
+[2026-03-11 06:27:57] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-11 06:28:01] INFO core [Generic] Form login OK at http://61.246.225.154:8001/
+[2026-03-11 06:28:01] INFO core Starting camera discovery for 61.246.225.154...
+[2026-03-11 06:28:01] INFO core [generic] Attempting ONVIF discovery for 61.246.225.154
+[2026-03-11 06:28:01] DEBUG core Trying ONVIF connection to 61.246.225.154:8001
+[2026-03-11 06:28:02] DEBUG core ONVIF connection failed on port 8001: Unknown error: Unknown fault occured
+[2026-03-11 06:28:02] DEBUG core Trying ONVIF connection to 61.246.225.154:82
+[2026-03-11 06:28:02] WARNING core Could not establish ONVIF connection to 61.246.225.154
+[2026-03-11 06:28:02] INFO core [generic] ONVIF returned 0 cameras, attempting brand-specific API discovery
+[2026-03-11 06:28:02] INFO core [Generic] API discovery success at /ISAPI/System/Video/inputs/channels
+[2026-03-11 06:28:02] INFO core [generic] API Response: Found 1 cameras via API
+[2026-03-11 06:28:02] INFO core Discovery complete. Found 1 camera(s).
+[2026-03-11 06:28:02] INFO core Fetched 1 cameras from http://61.246.225.154:8001
+[2026-03-12 04:41:17] INFO core Using explicit protocol: http for http://115.247.88.126:82
+[2026-03-12 04:41:17] INFO core Detected brand 'unknown' for URL: http://115.247.88.126:82
+[2026-03-12 04:41:17] INFO core Checking connectivity to 115.247.88.126 on port 82...
+[2026-03-12 04:41:17] DEBUG core Using adapter: GenericAdapter for brand 'unknown'
+[2026-03-12 04:41:22] WARNING core ConnectionError GET http://115.247.88.126:82/web/login: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-03-12 04:41:22] ERROR core Web connection failed: Cannot connect to http://115.247.88.126:82/web/login. Continuing to camera discovery (ONVIF/RTSP)...
+[2026-03-12 04:41:22] INFO core Starting camera discovery for 115.247.88.126...
+[2026-03-12 04:41:22] INFO core [generic] Attempting ONVIF discovery for 115.247.88.126
+[2026-03-12 04:41:22] DEBUG core Trying ONVIF connection to 115.247.88.126:82
+[2026-03-12 04:41:24] INFO core ONVIF connected successfully to 115.247.88.126:82
+[2026-03-12 04:41:29] INFO core ONVIF Response: Found 66 profiles
+[2026-03-12 04:41:30] INFO core Discovered ONVIF camera: MediaProfile_Channel1_MainStream (Token: MediaProfile00000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:30] INFO core Discovered ONVIF camera: MediaProfile_Channel1_SubStream1 (Token: MediaProfile00001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:31] INFO core Discovered ONVIF camera: MediaProfile_Channel2_MainStream (Token: MediaProfile00100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:31] INFO core Discovered ONVIF camera: MediaProfile_Channel2_SubStream1 (Token: MediaProfile00101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=2&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:32] INFO core Discovered ONVIF camera: MediaProfile_Channel3_MainStream (Token: MediaProfile00200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:32] INFO core Discovered ONVIF camera: MediaProfile_Channel3_SubStream1 (Token: MediaProfile00201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:33] INFO core Discovered ONVIF camera: MediaProfile_Channel4_MainStream (Token: MediaProfile00300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:33] INFO core Discovered ONVIF camera: MediaProfile_Channel4_SubStream1 (Token: MediaProfile00301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:34] INFO core Discovered ONVIF camera: MediaProfile_Channel5_MainStream (Token: MediaProfile00400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:34] INFO core Discovered ONVIF camera: MediaProfile_Channel5_SubStream1 (Token: MediaProfile00401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=5&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:35] INFO core Discovered ONVIF camera: MediaProfile_Channel6_MainStream (Token: MediaProfile00500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:35] INFO core Discovered ONVIF camera: MediaProfile_Channel6_SubStream1 (Token: MediaProfile00501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=6&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:36] INFO core Discovered ONVIF camera: MediaProfile_Channel7_MainStream (Token: MediaProfile00600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:36] INFO core Discovered ONVIF camera: MediaProfile_Channel7_SubStream1 (Token: MediaProfile00601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=7&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:37] INFO core Discovered ONVIF camera: MediaProfile_Channel8_MainStream (Token: MediaProfile00700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:37] INFO core Discovered ONVIF camera: MediaProfile_Channel8_SubStream1 (Token: MediaProfile00701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=8&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:37] INFO core Discovered ONVIF camera: MediaProfile_Channel9_MainStream (Token: MediaProfile00800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:38] INFO core Discovered ONVIF camera: MediaProfile_Channel9_SubStream1 (Token: MediaProfile00801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=9&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:38] INFO core Discovered ONVIF camera: MediaProfile_Channel10_MainStream (Token: MediaProfile00900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=10&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:39] INFO core Discovered ONVIF camera: MediaProfile_Channel10_SubStream1 (Token: MediaProfile00901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=10&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:39] INFO core Discovered ONVIF camera: MediaProfile_Channel11_MainStream (Token: MediaProfile01000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=11&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:40] INFO core Discovered ONVIF camera: MediaProfile_Channel11_SubStream1 (Token: MediaProfile01001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=11&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:40] INFO core Discovered ONVIF camera: MediaProfile_Channel12_MainStream (Token: MediaProfile01100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=12&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:41] INFO core Discovered ONVIF camera: MediaProfile_Channel12_SubStream1 (Token: MediaProfile01101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=12&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:41] INFO core Discovered ONVIF camera: MediaProfile_Channel13_MainStream (Token: MediaProfile01200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=13&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:42] INFO core Discovered ONVIF camera: MediaProfile_Channel13_SubStream1 (Token: MediaProfile01201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=13&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:42] INFO core Discovered ONVIF camera: MediaProfile_Channel14_MainStream (Token: MediaProfile01300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=14&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:42] INFO core Discovered ONVIF camera: MediaProfile_Channel14_SubStream1 (Token: MediaProfile01301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=14&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:43] INFO core Discovered ONVIF camera: MediaProfile_Channel15_MainStream (Token: MediaProfile01400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=15&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:43] INFO core Discovered ONVIF camera: MediaProfile_Channel15_SubStream1 (Token: MediaProfile01401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=15&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:44] INFO core Discovered ONVIF camera: MediaProfile_Channel16_MainStream (Token: MediaProfile01500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=16&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:44] INFO core Discovered ONVIF camera: MediaProfile_Channel16_SubStream1 (Token: MediaProfile01501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=16&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:45] INFO core Discovered ONVIF camera: MediaProfile_Channel17_MainStream (Token: MediaProfile01600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=17&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:45] INFO core Discovered ONVIF camera: MediaProfile_Channel17_SubStream1 (Token: MediaProfile01601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=17&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:46] INFO core Discovered ONVIF camera: MediaProfile_Channel18_MainStream (Token: MediaProfile01700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=18&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:46] INFO core Discovered ONVIF camera: MediaProfile_Channel18_SubStream1 (Token: MediaProfile01701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=18&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:47] INFO core Discovered ONVIF camera: MediaProfile_Channel19_MainStream (Token: MediaProfile01800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=19&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:47] INFO core Discovered ONVIF camera: MediaProfile_Channel19_SubStream1 (Token: MediaProfile01801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=19&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:48] INFO core Discovered ONVIF camera: MediaProfile_Channel20_MainStream (Token: MediaProfile01900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=20&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:49] INFO core Discovered ONVIF camera: MediaProfile_Channel20_SubStream1 (Token: MediaProfile01901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=20&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:49] INFO core Discovered ONVIF camera: MediaProfile_Channel21_MainStream (Token: MediaProfile02000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=21&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:50] INFO core Discovered ONVIF camera: MediaProfile_Channel21_SubStream1 (Token: MediaProfile02001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=21&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:51] INFO core Discovered ONVIF camera: MediaProfile_Channel22_MainStream (Token: MediaProfile02100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=22&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:52] INFO core Discovered ONVIF camera: MediaProfile_Channel22_SubStream1 (Token: MediaProfile02101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=22&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:52] INFO core Discovered ONVIF camera: MediaProfile_Channel23_MainStream (Token: MediaProfile02200) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=23&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:53] INFO core Discovered ONVIF camera: MediaProfile_Channel23_SubStream1 (Token: MediaProfile02201) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=23&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:54] INFO core Discovered ONVIF camera: MediaProfile_Channel24_MainStream (Token: MediaProfile02300) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=24&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:54] INFO core Discovered ONVIF camera: MediaProfile_Channel24_SubStream1 (Token: MediaProfile02301) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=24&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:55] INFO core Discovered ONVIF camera: MediaProfile_Channel25_MainStream (Token: MediaProfile02400) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=25&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:56] INFO core Discovered ONVIF camera: MediaProfile_Channel25_SubStream1 (Token: MediaProfile02401) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=25&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:56] INFO core Discovered ONVIF camera: MediaProfile_Channel26_MainStream (Token: MediaProfile02500) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=26&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:57] INFO core Discovered ONVIF camera: MediaProfile_Channel26_SubStream1 (Token: MediaProfile02501) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=26&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:41:58] INFO core Discovered ONVIF camera: MediaProfile_Channel27_MainStream (Token: MediaProfile02600) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=27&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:41:59] INFO core Discovered ONVIF camera: MediaProfile_Channel27_SubStream1 (Token: MediaProfile02601) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=27&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:42:00] INFO core Discovered ONVIF camera: MediaProfile_Channel28_MainStream (Token: MediaProfile02700) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=28&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:42:00] INFO core Discovered ONVIF camera: MediaProfile_Channel28_SubStream1 (Token: MediaProfile02701) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=28&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:42:01] INFO core Discovered ONVIF camera: MediaProfile_Channel29_MainStream (Token: MediaProfile02800) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=29&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:42:02] INFO core Discovered ONVIF camera: MediaProfile_Channel29_SubStream1 (Token: MediaProfile02801) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=29&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:42:02] INFO core Discovered ONVIF camera: MediaProfile_Channel30_MainStream (Token: MediaProfile02900) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=30&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:42:03] INFO core Discovered ONVIF camera: MediaProfile_Channel30_SubStream1 (Token: MediaProfile02901) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=30&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:42:03] INFO core Discovered ONVIF camera: MediaProfile_Channel31_MainStream (Token: MediaProfile03000) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:42:04] INFO core Discovered ONVIF camera: MediaProfile_Channel31_SubStream1 (Token: MediaProfile03001) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:42:04] INFO core Discovered ONVIF camera: MediaProfile_Channel31_SubStream2 (Token: MediaProfile03002) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=31&subtype=2&unicast=true&proto=Onvif
+[2026-03-12 04:42:05] INFO core Discovered ONVIF camera: MediaProfile_Channel32_MainStream (Token: MediaProfile03100) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:42:05] INFO core Discovered ONVIF camera: MediaProfile_Channel32_SubStream1 (Token: MediaProfile03101) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:42:06] INFO core Discovered ONVIF camera: MediaProfile_Channel32_SubStream2 (Token: MediaProfile03102) -> rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=32&subtype=2&unicast=true&proto=Onvif
+[2026-03-12 04:42:06] INFO core [generic] ONVIF Response: Found 66 cameras via ONVIF
+[2026-03-12 04:42:06] INFO core Discovery complete. Found 64 camera(s).
+[2026-03-12 04:42:06] INFO core Fetched 64 cameras from http://115.247.88.126:82
+[2026-03-12 04:42:26] INFO core Saved NVR 'Testing' (id=10, created=True) with 64 cameras
+[2026-03-12 04:45:52] DEBUG core Opening RTSP stream for camera 289: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=1&unicast=true&proto=Onvif with transport=tcp and timeout=5s
+[2026-03-12 04:45:55] DEBUG core Opening RTSP stream for camera 291: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1&unicast=true&proto=Onvif with transport=tcp and timeout=5s
+[2026-03-12 04:46:22] WARNING core Primary RTSP failed for camera 289. Attempting fallback...
+[2026-03-12 04:46:22] INFO core Trying general stream fallback: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:46:52] WARNING core Primary RTSP failed for camera 291. Attempting fallback...
+[2026-03-12 04:46:52] INFO core Trying general stream fallback: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=0&unicast=true&proto=Onvif
+[2026-03-12 04:47:22] ERROR core Could not open RTSP stream for camera 289: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:47:52] ERROR core Could not open RTSP stream for camera 291: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1&unicast=true&proto=Onvif
+[2026-03-12 04:51:24] DEBUG core Cleaned Dahua URL for better compatibility: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=0
+[2026-03-12 04:51:24] DEBUG core Opening RTSP stream for camera 284: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=0 with transport=tcp and timeout=5s
+[2026-03-12 04:51:26] DEBUG core Cleaned Dahua URL for better compatibility: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1
+[2026-03-12 04:51:26] DEBUG core Opening RTSP stream for camera 285: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1 with transport=tcp and timeout=5s
+[2026-03-12 04:51:54] WARNING core Primary RTSP failed for camera 284. Attempting fallback...
+[2026-03-12 04:51:54] INFO core Attempting clean Dahua fallback for channel 1: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1
+[2026-03-12 04:52:24] WARNING core Primary RTSP failed for camera 285. Attempting fallback...
+[2026-03-12 04:52:24] INFO core Attempting clean Dahua fallback for channel 1: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=1
+[2026-03-12 04:52:54] INFO core Attempting Hikvision fallback for channel 1: rtsp://admin:admin%40123@115.247.88.126:554/Streaming/Channels/101
+[2026-03-12 04:53:24] INFO core Attempting Hikvision fallback for channel 1: rtsp://admin:admin%40123@115.247.88.126:554/Streaming/Channels/101
+[2026-03-12 04:53:54] INFO core Attempting Dahua mainstream fallback for channel 1: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=0
+[2026-03-12 04:54:24] INFO core Attempting Dahua mainstream fallback for channel 1: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=1&subtype=0
+[2026-03-12 04:55:34] DEBUG core Cleaned Dahua URL for better compatibility: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=0
+[2026-03-12 04:55:34] DEBUG core Opening RTSP stream for camera 288: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=3&subtype=0 with transport=tcp and timeout=5s
+[2026-03-12 04:55:35] DEBUG core Cleaned Dahua URL for better compatibility: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1
+[2026-03-12 04:55:35] DEBUG core Opening RTSP stream for camera 291: rtsp://admin:admin%40123@115.247.88.126:554/cam/realmonitor?channel=4&subtype=1 with transport=tcp and timeout=5s
+[2026-03-12 04:56:04] WARNING core Primary RTSP failed for camera 288. Attempting fallback...
+[2026-03-12 04:56:04] INFO core Attempting simple port-based fallback for channel 3: rtsp://admin:admin%40123@115.247.88.126:82?channel=3
+[2026-03-12 04:56:34] WARNING core Primary RTSP failed for camera 291. Attempting fallback...
+[2026-03-12 04:56:34] INFO core Attempting simple port-based fallback for channel 4: rtsp://admin:admin%40123@115.247.88.126:82?channel=4
+[2026-03-12 04:56:40] INFO core Simple port-based fallback SUCCESS for camera 288
+[2026-03-12 04:56:40] INFO core RTSP stream successfully opened for camera 288
+[2026-03-12 04:56:44] INFO core Simple port-based fallback SUCCESS for camera 291
+[2026-03-12 04:56:44] INFO core RTSP stream successfully opened for camera 291

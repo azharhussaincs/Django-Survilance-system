@@ -1,0 +1,409 @@
+/* ─── NVR Shield – Dashboard CSS ────────────────────────────────────────── */
+
+/* Layout */
+body.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Top bar ──────────────────────────────────────────────────────────────── */
+.topbar {
+  height: var(--topbar-h);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 16px; gap: 10px;
+  flex-shrink: 0;
+  z-index: 200;
+}
+.topbar-brand {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 18px; font-weight: 700;
+  letter-spacing: 0.1em; text-decoration: none;
+  color: var(--text);
+}
+.topbar-brand svg { color: var(--accent); }
+.topbar-divider { width: 1px; height: 22px; background: var(--border); margin: 0 4px; }
+.topbar-spacer  { flex: 1; }
+
+.stat-pill {
+  display: flex; align-items: center; gap: 5px;
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--muted);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+.topbar-clock {
+  font-family: var(--font-mono);
+  font-size: 13px; color: var(--accent);
+  min-width: 80px; text-align: right;
+}
+.topbar-user {
+  font-size: 13px; color: var(--muted);
+  padding: 0 4px;
+}
+.btn-logout {
+  background: none; border: 1px solid var(--border);
+  color: var(--muted); border-radius: 5px;
+  padding: 6px 12px; font-family: var(--font-main);
+  font-size: 12px; font-weight: 600; cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: border-color var(--t-fast), color var(--t-fast);
+  text-transform: uppercase;
+}
+.btn-logout:hover { border-color: var(--accent2); color: var(--accent2); }
+
+/* ── Main layout ──────────────────────────────────────────────────────────── */
+.main-layout {
+  display: flex; flex: 1; overflow: hidden;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.sidebar-head {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.sidebar-title {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase;
+}
+.sidebar-body {
+  flex: 1; overflow-y: auto; padding: 6px 0;
+}
+.sidebar-foot {
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+/* NVR tree items */
+.nvr-item { border-bottom: 1px solid transparent; }
+.nvr-row {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 14px; cursor: pointer;
+  user-select: none;
+  transition: background var(--t-fast);
+  position: relative;
+}
+.nvr-row:hover { background: var(--surface2); }
+
+.nvr-arrow {
+  color: var(--muted); flex-shrink: 0;
+  transition: transform var(--t-fast);
+  display: flex; align-items: center;
+}
+.nvr-item.open > .nvr-row .nvr-arrow { transform: rotate(90deg); }
+
+.nvr-name {
+  font-size: 13px; font-weight: 600;
+  flex: 1; min-width: 0;
+}
+.nvr-actions {
+  display: flex; gap: 2px; opacity: 0;
+  transition: opacity var(--t-fast);
+}
+.nvr-row:hover .nvr-actions { opacity: 1; }
+.nvr-act-btn {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; padding: 3px;
+  display: flex; align-items: center;
+  transition: color var(--t-fast); border-radius: 3px;
+}
+.nvr-act-btn:hover { color: var(--accent2); background: rgba(255,76,94,0.1); }
+
+/* Camera list */
+.cam-list { display: none; }
+.nvr-item.open > .cam-list { display: block; }
+
+.cam-row {
+  display: flex; align-items: center; gap: 7px;
+  padding: 6px 14px 6px 32px;
+  cursor: grab; user-select: none;
+  transition: background var(--t-fast);
+  border-left: 2px solid transparent;
+  position: relative;
+}
+.cam-row:hover {
+  background: var(--surface2);
+  border-left-color: var(--accent);
+}
+.cam-row.selected {
+  background: rgba(0,212,255,0.07);
+  border-left-color: var(--accent);
+}
+.cam-row:active { cursor: grabbing; }
+.cam-name-text {
+  font-size: 12px; color: var(--text2);
+  flex: 1; min-width: 0;
+}
+.cam-ch {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--muted); flex-shrink: 0;
+}
+.cam-del-btn {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; padding: 2px;
+  display: flex; align-items: center;
+  opacity: 0; transition: opacity var(--t-fast), color var(--t-fast);
+}
+.cam-row:hover .cam-del-btn { opacity: 1; }
+.cam-del-btn:hover { color: var(--accent2); }
+
+.cam-empty {
+  padding: 8px 14px 8px 32px;
+  font-size: 11px; color: var(--muted);
+  font-style: italic;
+}
+
+.sel-count {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--muted); text-align: center;
+  margin-bottom: 7px;
+}
+.btn-add-sel {
+  width: 100%; padding: 8px;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.25);
+  color: var(--accent); border-radius: 5px;
+  font-family: var(--font-main); font-size: 12px; font-weight: 700;
+  cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase;
+  transition: background var(--t-fast);
+}
+.btn-add-sel:hover { background: rgba(0,212,255,0.18); }
+
+.sidebar-empty {
+  padding: 28px 16px; text-align: center;
+}
+.sidebar-empty svg { color: var(--border2); margin-bottom: 10px; }
+.sidebar-empty-title {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--muted); margin-bottom: 5px;
+}
+.sidebar-empty-sub { font-size: 12px; color: var(--border2); }
+
+/* ── Grid area ────────────────────────────────────────────────────────────── */
+.grid-area {
+  flex: 1; display: flex; flex-direction: column;
+  overflow: hidden; min-width: 0;
+}
+
+/* Toolbar */
+.grid-toolbar {
+  height: 46px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 6px;
+  padding: 0 14px; flex-shrink: 0;
+}
+.toolbar-label {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--muted); letter-spacing: 0.15em;
+  text-transform: uppercase; margin-right: 2px;
+}
+.toolbar-sep { width: 1px; height: 18px; background: var(--border); margin: 0 4px; }
+.toolbar-spacer { flex: 1; }
+
+.layout-btn {
+  padding: 4px 11px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text2); border-radius: 4px;
+  font-family: var(--font-main); font-size: 12px; font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--t-fast), color var(--t-fast), background var(--t-fast);
+}
+.layout-btn:hover, .layout-btn.active {
+  border-color: var(--accent); color: var(--accent);
+  background: rgba(0,212,255,0.07);
+}
+
+.custom-inputs {
+  display: flex; align-items: center; gap: 5px;
+}
+.custom-inp {
+  width: 46px; text-align: center;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 4px; color: var(--text);
+  font-family: var(--font-mono); font-size: 12px;
+  padding: 4px 6px; outline: none;
+  transition: border-color var(--t-fast);
+}
+.custom-inp:focus { border-color: var(--accent); }
+.custom-x { font-size: 12px; color: var(--muted); }
+.btn-apply {
+  padding: 4px 9px;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.25);
+  color: var(--accent); border-radius: 4px;
+  font-family: var(--font-main); font-size: 11px; font-weight: 700;
+  cursor: pointer; text-transform: uppercase; letter-spacing: 0.06em;
+  transition: background var(--t-fast);
+}
+.btn-apply:hover { background: rgba(0,212,255,0.18); }
+
+/* Grid wrapper */
+.grid-wrap {
+  flex: 1; overflow: auto;
+  padding: 10px;
+  background: var(--bg);
+}
+
+/* Camera grid */
+.cam-grid {
+  display: grid;
+  width: 100%; height: 100%;
+  gap: 4px;
+}
+
+/* Grid cells */
+.grid-cell {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px; overflow: hidden;
+  position: relative; min-height: 100px;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.grid-cell.drag-over {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 16px rgba(0,212,255,0.1);
+}
+.grid-cell.occupied { border-color: var(--border2); }
+
+.cell-idx {
+  position: absolute; top: 5px; left: 7px; z-index: 3;
+  font-family: var(--font-mono); font-size: 10px; color: var(--muted);
+  pointer-events: none;
+}
+
+/* Empty cell placeholder */
+.cell-placeholder {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%; gap: 7px; pointer-events: none;
+}
+.cell-placeholder svg { color: var(--border2); opacity: 0.5; }
+.cell-placeholder-txt {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--border2); letter-spacing: 0.1em;
+}
+
+/* Occupied cell */
+.cell-bar {
+  position: absolute; top: 0; left: 0; right: 0;
+  padding: 4px 7px;
+  background: rgba(0,0,0,0.65);
+  display: flex; align-items: center; gap: 5px;
+  z-index: 3;
+}
+.cell-bar-name {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--text2); flex: 1; min-width: 0;
+}
+.cell-close-btn {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; padding: 1px; display: flex;
+  transition: color var(--t-fast);
+}
+.cell-close-btn:hover { color: var(--accent2); }
+.cell-iframe,
+.cell-stream-img {
+  display: block; width: 100%; height: 100%;
+  border: none; background: var(--surface2);
+  object-fit: contain;
+}
+
+.stream-container {
+  width: 100%; height: 100%;
+  background: #000; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.load-failed .cell-iframe,
+.load-failed .stream-container {
+  display: none;
+}
+
+.iframe-fail-notice {
+  display: none;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.load-failed .iframe-fail-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0,0,0,0.7);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.fail-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--surface3);
+  color: var(--text-secondary);
+}
+
+.btn-outline:hover {
+  background: var(--surface2);
+  color: var(--text-primary);
+}
+
+.iframe-fail-notice p {
+  color: var(--accent2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-xs {
+  padding: 4px 10px;
+  font-size: 11px;
+}
+
+/* ── Add NVR modal specifics ──────────────────────────────────────────────── */
+.connect-panel {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px;
+  margin-top: 18px; display: none;
+}
+.connect-panel.visible { display: block; animation: fadeIn 0.2s ease; }
+
+.detected-brand {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+}
+.cam-preview-scroll {
+  max-height: 190px; overflow-y: auto;
+}
+.cam-preview-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 0; border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.cam-preview-row:last-child { border-bottom: none; }
+
+/* Connect button loading state */
+#btnConnect[disabled] { opacity: 0.7; cursor: not-allowed; }

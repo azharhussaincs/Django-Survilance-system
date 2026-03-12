@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}500 - Server Error{% endblock %}
+{% block content %}
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; color: var(--text-primary); background: var(--bg-dark);">
+    <h1 style="font-size: 5rem; margin-bottom: 0;">500</h1>
+    <p style="font-size: 1.5rem;">System Failure / Core Overload</p>
+    <a href="{% url 'dashboard' %}" class="btn btn-primary">Return to Dashboard</a>
+</div>
+{% endblock %}
